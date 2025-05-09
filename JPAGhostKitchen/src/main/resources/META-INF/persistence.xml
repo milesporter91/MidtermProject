@@ -8,9 +8,9 @@
     <class>com.skilldistillery.ghostkitchen.entities.User</class>
 
     <properties>
-      <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/FIXME" />
-      <property name="jakarta.persistence.jdbc.user" value="FIXME"/>
-      <property name="jakarta.persistence.jdbc.password" value="FIXME" />
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ghostkitchensdb"/>
+      <property name="jakarta.persistence.jdbc.user" value="ghostkitchensuser"/>
+      <property name="jakarta.persistence.jdbc.password" value="ghostkitchensuser" />
       <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
 
       <property name="hibernate.show_sql" value="false" />
