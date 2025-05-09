@@ -1,5 +1,7 @@
 package com.skilldistillery.ghostkitchen.data;
 
-public interface UserDAO {
+import com.skilldistillery.ghostkitchen.entities.User;
 
+public interface UserDAO {
+	 User authenticateUser(String username, String password);
 }

@@ -8,5 +8,7 @@
 </head>
 <body>
 
+<p>Login Test Result: ${SMOKETEST}</p>
+
 </body>
 </html>
