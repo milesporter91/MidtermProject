@@ -1,0 +1,165 @@
+package com.skilldistillery.ghostkitchen.entities;
+
+import java.time.LocalDateTime;
+import java.util.Objects;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
+public class Restaurant {
+	@Id
+	@GeneratedValue
+	private int id;
+	private String name;
+	//OneToOne
+//	@Column(name="address_id")
+//	private Address address;
+	
+	private boolean enabled;
+	@Column(name="image_url")
+	private String imageUrl;
+	@Column(name="website_url")
+	private String websiteUrl;
+	private String description;
+	@Column(name="price_range")
+	private Integer priceRange;
+	
+	//OneToMany
+//	@Column(name="user_id")
+//	private int userId;
+	
+	@Column(name="open_time")
+	private LocalDateTime openTime;
+	
+	@Column(name="close_time")
+	private LocalDateTime closeTime;
+	
+	@Column(name="create_date")
+	private LocalDateTime createDate;
+	
+	@Column(name="last_update")
+	private LocalDateTime lastUpdate;
+
+	public Restaurant() {
+		super();
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	public String getWebsiteUrl() {
+		return websiteUrl;
+	}
+
+	public void setWebsiteUrl(String websiteUrl) {
+		this.websiteUrl = websiteUrl;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Integer getPriceRange() {
+		return priceRange;
+	}
+
+	public void setPriceRange(Integer priceRange) {
+		this.priceRange = priceRange;
+	}
+
+	public LocalDateTime getOpenTime() {
+		return openTime;
+	}
+
+	public void setOpenTime(LocalDateTime openTime) {
+		this.openTime = openTime;
+	}
+
+	public LocalDateTime getCloseTime() {
+		return closeTime;
+	}
+
+	public void setCloseTime(LocalDateTime closeTime) {
+		this.closeTime = closeTime;
+	}
+
+	public LocalDateTime getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(LocalDateTime createDate) {
+		this.createDate = createDate;
+	}
+
+	public LocalDateTime getLastUpdate() {
+		return lastUpdate;
+	}
+
+	public void setLastUpdate(LocalDateTime lastUpdate) {
+		this.lastUpdate = lastUpdate;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Restaurant other = (Restaurant) obj;
+		return id == other.id;
+	}
+
+	@Override
+	public String toString() {
+		return "Restaurant [id=" + id + ", name=" + name + ", enabled=" + enabled + ", imageUrl=" + imageUrl
+				+ ", websiteUrl=" + websiteUrl + ", description=" + description + ", priceRange=" + priceRange
+				+ ", openTime=" + openTime + ", closeTime=" + closeTime + ", createDate=" + createDate + ", lastUpdate="
+				+ lastUpdate + "]";
+	}
+	
+	
+	
+}
