@@ -347,6 +347,7 @@ START TRANSACTION;
 USE `ghostkitchensdb`;
 INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zip_code`, `phone`) VALUES (1, '3435 S Inca St', 'Ste C', 'Englewood', 'CO', '80110', '720-444-5555');
 INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zip_code`, `phone`) VALUES (2, '901 Englewood Pkwy', NULL, 'Englewood', 'CO', '80110', NULL);
+INSERT INTO `address` (`id`, `street`, `street2`, `city`, `state`, `zip_code`, `phone`) VALUES (3, '810 Vallejo St   ', NULL, 'Denver ', 'CO', '80204', '720-900-7112');
 
 COMMIT;
 
@@ -367,7 +368,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ghostkitchensdb`;
-INSERT INTO `restaurant` (`id`, `name`, `address_id`, `enabled`, `image_url`, `website_url`, `description`, `price_range`, `user_id`, `open_time`, `close_time`, `create_date`, `last_update`) VALUES (1, 'cheesy', 1, 1, NULL, NULL, 'mac and cheese', 1, 1, NULL, NULL, NULL, NULL);
+INSERT INTO `restaurant` (`id`, `name`, `address_id`, `enabled`, `image_url`, `website_url`, `description`, `price_range`, `user_id`, `open_time`, `close_time`, `create_date`, `last_update`) VALUES (1, 'Paborito (Filipino BBQ)', 3, 1, 'https://lh3.googleusercontent.com/p/AF1QipO245_gkk76lmlbqm9bbaFC4QGsSX-sAWvpR1HL=s1360-w1360-h1020-rw', 'paboritobbq.square.site', '\"Ghost Kitchen that serves Filipino BBQ specialized in Take out and Delivery apps like UberEats, GrubHub and DoorDash.\"', 2, 1, '11:00', '20:00', '2025-05-09', NULL);
 
 COMMIT;
 
@@ -377,7 +378,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ghostkitchensdb`;
-INSERT INTO `review` (`id`, `user_id`, `restaurant_id`, `comments`, `rating`, `enabled`, `create_date`, `last_update`) VALUES (1, 2, 1, 'food was hot and spicy', 5.0, 1, NULL, NULL);
+INSERT INTO `review` (`id`, `user_id`, `restaurant_id`, `comments`, `rating`, `enabled`, `create_date`, `last_update`) VALUES (1, 2, 1, 'food was hot and spicy', 5.0, 1, '2025-05-09', '2025-05-09');
 
 COMMIT;
 
@@ -397,7 +398,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ghostkitchensdb`;
-INSERT INTO `cuisine_type` (`id`, `name`, `description`, `image_url`) VALUES (1, 'kenyan', NULL, NULL);
+INSERT INTO `cuisine_type` (`id`, `name`, `description`, `image_url`) VALUES (1, 'Filipino', 'The food was so delicious I had to order a few days later. The meats are juicy and flavorful, and great portions for the price.', 'https://i0.wp.com/www.denverpost.com/wp-content/uploads/2024/12/TDP-L-Paborito-01.jpg');
 
 COMMIT;
 
@@ -408,6 +409,66 @@ COMMIT;
 START TRANSACTION;
 USE `ghostkitchensdb`;
 INSERT INTO `restaurant_cuisine_type` (`cuisine_type_id`, `restaurant_id`) VALUES (1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `restaurant_type`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `ghostkitchensdb`;
+INSERT INTO `restaurant_type` (`id`, `name`, `image_url`, `description`) VALUES (1, 'Ghost Kitchen', 'https://images.prismic.io/cloudkitchens-main/092ff16d-2857-4245-aa1f-9c9d447893f7_Denver_Exterior_VallejoDSC02348+Large.jpeg?auto=compress,format', 'Vallejo Food Pickup is a Denver food hall and delivery hub. We have over 20+ kitchens run by some of the best small-business chefs in the city, as well as family favorite national chains. Place your order for delivery via your favorite major delivery app, or order pickup via our website. You can also come in today to try out one of our many kitchens for takeout by using our state-of-the-art lobby kiosks!\n');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `restaurant_has_restaurant_type`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `ghostkitchensdb`;
+INSERT INTO `restaurant_has_restaurant_type` (`restaurant_id`, `restaurant_type_id`) VALUES (1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `restaurant_tag`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `ghostkitchensdb`;
+INSERT INTO `restaurant_tag` (`id`, `name`, `user_id`) VALUES (1, 'Filipino', 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `restaurant_has_restaurant_tag`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `ghostkitchensdb`;
+INSERT INTO `restaurant_has_restaurant_tag` (`restaurant_id`, `restaurant_tag_id`) VALUES (1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `review_comment`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `ghostkitchensdb`;
+INSERT INTO `review_comment` (`id`, `comment`, `create_date`, `enabled`, `user_id`, `review_id`, `in_reply_to_id`) VALUES (1, 'This was great food', '2025-05-09', 1, 1, 1, NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `review_rating`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `ghostkitchensdb`;
+INSERT INTO `review_rating` (`user_id`, `review_id`, `rating`) VALUES (1, 1, 10);
 
 COMMIT;
 
