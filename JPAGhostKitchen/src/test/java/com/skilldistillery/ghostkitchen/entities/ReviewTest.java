@@ -1,8 +1,8 @@
 package com.skilldistillery.ghostkitchen.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import java.beans.PersistenceDelegate;
+import java.util.List;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -44,10 +44,23 @@ class ReviewTest {
 	}
 
 	@Test
-	void test_User_entity_mapping() {
+	void test_ReviewTest_entity_mapping() {
 		assertNotNull(review);
 
 	}
+	
+	@Test
+	void test_ReviewTest_User_MTO_entity_mapping() {
+		User user = review.getUser();
+		assertNotNull(user);
 
+	}
+	
+	@Test
+	void test_ReviewTest_OTM_entity_mapping() {
+		List<ReviewComment> reviewComments = review.getReviewComments(); 
+		assertNotNull(reviewComments);
+
+	}
 	
 }

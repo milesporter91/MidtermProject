@@ -1,6 +1,7 @@
 package com.skilldistillery.ghostkitchen.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -9,7 +10,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -27,6 +31,8 @@ public class User {
 	@ManyToOne
 	@JoinColumn(name="address_id")
 	private Address address;
+	
+	
 	
 	@Column(name="first_name")
 	private String firstName;
@@ -48,8 +54,23 @@ public class User {
 	@Column(name="about_me")
 	private String aboutMe;
 	
+	@OneToMany(mappedBy = "user")
+	private List<Restaurant> restaurants; 
 	
+	@ManyToMany
+	@JoinTable(name="favorite_restaurant",
+		joinColumns=@JoinColumn(name="restaurant_id"), 
+		inverseJoinColumns=@JoinColumn(name="user_id")
+	)
+	
+	private List<Restaurant> favoriteRestaurants; 
 
+	@OneToMany(mappedBy = "user")
+	private List<RestaurantTag> restaurantTags;
+	
+	@OneToMany(mappedBy="user")
+	private List<Review> reviews;
+	
 	public User() {
 		super();
 	}
@@ -155,6 +176,38 @@ public class User {
 
 	public void setAboutMe(String aboutMe) {
 		this.aboutMe = aboutMe;
+	}
+
+	public List<Restaurant> getFavoriteRestaurants() {
+		return favoriteRestaurants;
+	}
+
+	public void setFavoriteRestaurants(List<Restaurant> favoriteRestaurants) {
+		this.favoriteRestaurants = favoriteRestaurants;
+	}
+
+	public List<Restaurant> getRestaurants() {
+		return restaurants;
+	}
+
+	public void setRestaurants(List<Restaurant> restaurants) {
+		this.restaurants = restaurants;
+	}
+
+	public List<RestaurantTag> getRestaurantTags() {
+		return restaurantTags;
+	}
+
+	public void setRestaurantTags(List<RestaurantTag> restaurantTags) {
+		this.restaurantTags = restaurantTags;
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
 	}
 
 	@Override

@@ -1,8 +1,8 @@
 package com.skilldistillery.ghostkitchen.entities;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.List;
+import java.beans.PersistenceDelegate;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -14,11 +14,11 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-class RestaurantTest {
+class RestaurantTagTest {
 	
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Restaurant restaurant;
+	private RestaurantTag restaurantTag;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -33,32 +33,28 @@ class RestaurantTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		restaurant = em.find(Restaurant.class,1);
+		restaurantTag = em.find(RestaurantTag.class,1);
 	}
 				
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		restaurant = null;
+		restaurantTag = null;
 	}
 
 	@Test
-	void test_Restaurant_mapping() {
-		assertNotNull(restaurant);
+	void test_RestaurantTag_entity_mapping() {
+		assertNotNull(restaurantTag);
 
 	}
 
 	@Test
-	void test_Restaurant_otm_user() {
-		User user = restaurant.getUser(); 
+	void test_RestaurantTag_User_MTO_entity_mapping() {
+		User user = restaurantTag.getUser();
 		assertNotNull(user);
-}
+		assertNotNull(restaurantTag);
 
-	@Test
-	void test_Restaurant_Review_OTM_mapping() {
-		List<Review> reviews = restaurant.getReviews(); 
-		assertNotNull(reviews);
-}
+	}
 	
 }
