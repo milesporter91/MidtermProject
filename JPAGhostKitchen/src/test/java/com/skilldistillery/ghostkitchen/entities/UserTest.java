@@ -77,4 +77,18 @@ class UserTest {
 		assertNotNull(reviews);
 		assertTrue(reviews.size() == 0); // TODO change back to > 0 after additional rows in db
 	}
+	
+	@Test
+	void test_User_ReviewRating_OTM_mapping() {
+		List<ReviewRating> reviewRatings = user.getReviewRatings();
+		assertNotNull(reviewRatings);
+		assertTrue(reviewRatings.size() > 0); 
+	}
+	
+	@Test
+	void test_User_ReviewComment_OTM_mapping() {
+		List<ReviewComment> reviewComments = user.getReviewComments();
+		assertNotNull(reviewComments);
+		assertTrue(reviewComments.size() > 0); 
+	}
 }

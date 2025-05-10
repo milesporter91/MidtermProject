@@ -1,6 +1,7 @@
 package com.skilldistillery.ghostkitchen.entities;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -57,10 +58,18 @@ class ReviewTest {
 	}
 	
 	@Test
-	void test_ReviewTest_OTM_entity_mapping() {
+	void test_ReviewTest_ReviewComments_OTM_entity_mapping() {
 		List<ReviewComment> reviewComments = review.getReviewComments(); 
 		assertNotNull(reviewComments);
+		assertTrue(reviewComments.size() > 0);
 
+	}
+	
+	@Test
+	void test_Review_ReviewRating_OTM_mapping() {
+		List<ReviewRating> reviewRatings = review.getReviewRatings();
+		assertNotNull(reviewRatings);
+		assertTrue(reviewRatings.size() > 0); 
 	}
 	
 }

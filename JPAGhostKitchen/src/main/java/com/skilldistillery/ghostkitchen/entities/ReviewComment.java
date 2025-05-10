@@ -1,6 +1,7 @@
 package com.skilldistillery.ghostkitchen.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -9,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,15 +24,20 @@ public class ReviewComment {
 	private LocalDateTime createDate;
 	private boolean enabled;
 	
-//	@Column(name="user_id")
-//	private User user;
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
 	
 	@ManyToOne
 	@JoinColumn(name="review_id")
 	private Review review;
 	
-//	@Column(name="in_reply_to_id")
-//	private ReviewComment reviewComment;
+	@ManyToOne
+	@JoinColumn(name="in_reply_to_id")
+	private ReviewComment inReplyToReviewComment;
+	
+	@OneToMany(mappedBy="inReplyToReviewComment")
+	private List<ReviewComment> replies;
 	
 	public ReviewComment() {
 		super();
@@ -74,6 +81,30 @@ public class ReviewComment {
 
 	public void setReview(Review review) {
 		this.review = review;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public ReviewComment getInReplyToReviewComment() {
+		return inReplyToReviewComment;
+	}
+
+	public void setInReplyToReviewComment(ReviewComment inReplyToReviewComment) {
+		this.inReplyToReviewComment = inReplyToReviewComment;
+	}
+
+	public List<ReviewComment> getReplies() {
+		return replies;
+	}
+
+	public void setReplies(List<ReviewComment> replies) {
+		this.replies = replies;
 	}
 
 	@Override

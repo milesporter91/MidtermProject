@@ -2,7 +2,7 @@ package com.skilldistillery.ghostkitchen.entities;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.beans.PersistenceDelegate;
+import java.util.List;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -44,9 +44,15 @@ class CuisineTypeTest {
 	}
 
 	@Test
-	void test_User_entity_mapping() {
+	void test_CuisineType_entity_mapping() {
 		assertNotNull(cuisineType);
-
+	}
+	
+	@Test
+	void test_Restaurant_CuisineType_MTM_entity_mapping() {
+		List<Restaurant> restaurants = cuisineType.getRestaurants();
+		assertNotNull(restaurants);
+		assertNotNull(cuisineType);
 	}
 
 	
