@@ -44,10 +44,14 @@ class RestaurantTest {
 	}
 
 	@Test
-	void test_User_entity_mapping() {
+	void test_Restaurant_mapping() {
 		assertNotNull(restaurant);
 
 	}
 
-	
+	@Test
+	void test_Restaurant_otm_user() {
+		User user = restaurant.getUser(); 
+		assertNotNull(user);
+}
 }
