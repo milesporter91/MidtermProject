@@ -7,6 +7,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,8 +25,9 @@ public class ReviewComment {
 //	@Column(name="user_id")
 //	private User user;
 	
-//	@Column(name="review_id")
-//	private Review review;
+	@ManyToOne
+	@JoinColumn(name="review_id")
+	private Review review;
 	
 //	@Column(name="in_reply_to_id")
 //	private ReviewComment reviewComment;
@@ -63,6 +66,14 @@ public class ReviewComment {
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	public Review getReview() {
+		return review;
+	}
+
+	public void setReview(Review review) {
+		this.review = review;
 	}
 
 	@Override

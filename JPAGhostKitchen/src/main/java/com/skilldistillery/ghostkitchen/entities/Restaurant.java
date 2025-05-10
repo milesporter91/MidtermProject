@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Restaurant {
@@ -48,7 +49,8 @@ public class Restaurant {
 	@JoinColumn(name="user_id")
 	private User user; 
 	
-	
+	@OneToMany(mappedBy="restaurant")
+	private List<Review> reviews;
 	
 	public Restaurant() {
 		super();
@@ -148,6 +150,14 @@ public class Restaurant {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
 	}
 
 	@Override

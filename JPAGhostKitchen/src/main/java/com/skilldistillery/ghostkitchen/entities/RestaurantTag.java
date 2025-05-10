@@ -17,6 +17,7 @@ public class RestaurantTag {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
+	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;

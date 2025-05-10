@@ -44,7 +44,7 @@ class ReviewRatingTest {
 	}
 
 	@Test
-	void test_User_entity_mapping() {
+	void test_ReviewRating_entity_mapping() {
 		assertNotNull(reviewRating);
 
 	}

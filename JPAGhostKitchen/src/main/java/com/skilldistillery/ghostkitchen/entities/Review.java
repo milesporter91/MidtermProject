@@ -1,12 +1,16 @@
 package com.skilldistillery.ghostkitchen.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Review {
@@ -14,9 +18,17 @@ public class Review {
 	@GeneratedValue
 	private int id;
 	
-//	@Column(name="user_id")
-//	private User user;
+	@ManyToOne 
+	@JoinColumn (name="user_id")
+	private User user;
 	
+	@ManyToOne 
+	@JoinColumn (name="restaurant_id")
+	private Restaurant restaurant;
+	
+	@OneToMany (mappedBy="review")
+	private List<ReviewComment> reviewComments;
+			
 //	@Column(name="restaurant_id")
 //	private Restaurant restaurant;
 	
@@ -28,7 +40,8 @@ public class Review {
 	
 	@Column(name="last_update")
 	private LocalDateTime lastUpdate;
-
+	
+		
 	public Review() {
 		super();
 	}
@@ -79,6 +92,30 @@ public class Review {
 
 	public void setLastUpdate(LocalDateTime lastUpdate) {
 		this.lastUpdate = lastUpdate;
+	}
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
+
+	public List<ReviewComment> getReviewComments() {
+		return reviewComments;
+	}
+
+	public void setReviewComments(List<ReviewComment> reviewComments) {
+		this.reviewComments = reviewComments;
 	}
 
 	@Override

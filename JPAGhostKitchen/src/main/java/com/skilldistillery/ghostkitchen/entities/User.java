@@ -32,6 +32,8 @@ public class User {
 	@JoinColumn(name="address_id")
 	private Address address;
 	
+	
+	
 	@Column(name="first_name")
 	private String firstName;
 	
@@ -60,8 +62,15 @@ public class User {
 		joinColumns=@JoinColumn(name="restaurant_id"), 
 		inverseJoinColumns=@JoinColumn(name="user_id")
 	)
+	
 	private List<Restaurant> favoriteRestaurants; 
 
+	@OneToMany(mappedBy = "user")
+	private List<RestaurantTag> restaurantTags;
+	
+	@OneToMany(mappedBy="user")
+	private List<Review> reviews;
+	
 	public User() {
 		super();
 	}
@@ -183,6 +192,22 @@ public class User {
 
 	public void setRestaurants(List<Restaurant> restaurants) {
 		this.restaurants = restaurants;
+	}
+
+	public List<RestaurantTag> getRestaurantTags() {
+		return restaurantTags;
+	}
+
+	public void setRestaurantTags(List<RestaurantTag> restaurantTags) {
+		this.restaurantTags = restaurantTags;
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
 	}
 
 	@Override

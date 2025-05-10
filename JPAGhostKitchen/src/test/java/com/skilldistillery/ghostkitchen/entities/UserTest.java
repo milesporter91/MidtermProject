@@ -56,10 +56,25 @@ class UserTest {
 		assertNotNull(favoriteRestaurants);
 		assertTrue(favoriteRestaurants.size() > 0); 
 	}
+	
 	@Test
 	void test_User_Restaurant_mto_mapping() {
 		List<Restaurant> restaurants = user.getRestaurants(); 
 		assertNotNull(restaurants);
 		assertTrue(restaurants.size() > 0); 
+	}
+
+	@Test
+	void test_User_RestaurantTag_mto_mapping() {
+		List<RestaurantTag> restaurantTags = user.getRestaurantTags(); 
+		assertNotNull(restaurantTags);
+		assertTrue(restaurantTags.size() > 0); 
+	}
+	
+	@Test
+	void test_User_Review_mto_mapping() {
+		List<Review> reviews = user.getReviews(); 
+		assertNotNull(reviews);
+		assertTrue(reviews.size() == 0); // TODO change back to > 0 after additional rows in db
 	}
 }
