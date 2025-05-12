@@ -75,6 +75,6 @@ class UserTest {
 	void test_User_Review_mto_mapping() {
 		List<Review> reviews = user.getReviews(); 
 		assertNotNull(reviews);
-		assertTrue(reviews.size() == 0); // TODO change back to > 0 after additional rows in db
+		assertTrue(reviews.size() > 0); // TODO change back to > 0 after additional rows in db
 	}
 }
