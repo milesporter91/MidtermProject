@@ -22,13 +22,16 @@ Ghost Kitchen, developed by Polymorphic Plague, is a web application showcasing 
  - SQL Workbench
  - Spring Boot
  - Gradle
- - 
 
- ## Database Schema
+## Database Schema
 
 ![diagram](images/diagram.png)
 
- ## Concepts Applied
+## Setup
+
+[Getting Started](images/gettingStarted.md) 
+
+## Concepts Applied
 
   - Multi table SQL database creation
   - Conditional Statements
@@ -37,6 +40,13 @@ Ghost Kitchen, developed by Polymorphic Plague, is a web application showcasing 
 
  ## Lessons Learned
 
-  - 
+    - Mapping Entity with Composite Primary Key
+    ```
+        @Embeddable
+        public class PartyInvitationId implements Serializable {
+        private static final long serialVersionUID = 1L;``
+    ```
+    - 
+  
 [link text](https://example.com)
 ![alt text](image.png)
