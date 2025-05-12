@@ -29,9 +29,6 @@ public class Review {
 	@OneToMany (mappedBy="review")
 	private List<ReviewComment> reviewComments;
 			
-//	@Column(name="restaurant_id")
-//	private Restaurant restaurant;
-	
 	private String comments;
 	private int rating;
 	private boolean enabled;
@@ -40,6 +37,9 @@ public class Review {
 	
 	@Column(name="last_update")
 	private LocalDateTime lastUpdate;
+	
+	@OneToMany(mappedBy = "review")
+	private List<ReviewRating> reviewRatings;
 	
 		
 	public Review() {
@@ -116,6 +116,14 @@ public class Review {
 
 	public void setReviewComments(List<ReviewComment> reviewComments) {
 		this.reviewComments = reviewComments;
+	}
+
+	public List<ReviewRating> getReviewRatings() {
+		return reviewRatings;
+	}
+
+	public void setReviewRatings(List<ReviewRating> reviewRatings) {
+		this.reviewRatings = reviewRatings;
 	}
 
 	@Override

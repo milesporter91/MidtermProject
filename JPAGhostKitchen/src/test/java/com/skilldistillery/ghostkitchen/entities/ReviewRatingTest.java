@@ -48,6 +48,12 @@ class ReviewRatingTest {
 		assertNotNull(reviewRating);
 
 	}
+	
+	@Test
+	void test_ReviewRating_Review_MTO_mapping() {
+		Review review = reviewRating.getReview();
+		assertNotNull(review);
+	}
 
 	
 }

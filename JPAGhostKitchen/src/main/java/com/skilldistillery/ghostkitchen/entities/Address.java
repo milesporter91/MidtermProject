@@ -1,11 +1,13 @@
 package com.skilldistillery.ghostkitchen.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Address {
@@ -21,6 +23,13 @@ public class Address {
 	@Column(name="zip_code")
 	private int zipCode;
 	private String phone;
+	
+	@OneToMany(mappedBy = "address")
+	private List<Restaurant> restaurants;
+	
+	@OneToMany(mappedBy = "address")
+	private List<User> users;
+	
 	public Address() {
 		super();
 	}
@@ -65,6 +74,18 @@ public class Address {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	public List<Restaurant> getRestaurants() {
+		return restaurants;
+	}
+	public void setRestaurants(List<Restaurant> restaurants) {
+		this.restaurants = restaurants;
+	}
+	public List<User> getUsers() {
+		return users;
+	}
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 	@Override
 	public int hashCode() {

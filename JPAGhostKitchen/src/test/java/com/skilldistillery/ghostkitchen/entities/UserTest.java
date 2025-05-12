@@ -84,4 +84,10 @@ class UserTest {
 		assertNotNull(reviewComments);
 		assertTrue(reviewComments.size() > 0); 
 	}
+	
+	@Test
+	void test_User_Address_mto_mapping() {
+		Address address = user.getAddress(); 
+		assertNotNull(address);
+	}
 }
