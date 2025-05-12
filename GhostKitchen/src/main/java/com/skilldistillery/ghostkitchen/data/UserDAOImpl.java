@@ -11,29 +11,32 @@ import jakarta.transaction.Transactional;
 @Service
 @Transactional
 public class UserDAOImpl implements UserDAO {
-	
+
 	@PersistenceContext
 	private EntityManager em;
-
 	
 	@Override
 	public User authenticateUser(String username, String password) {
-	    User user = null;
+		User user = null;
 
-	    try {
-	        String jpql = "SELECT u FROM User u WHERE u.username = :un AND u.password = :pw AND u.enabled = true";
-	        user = em.createQuery(jpql, User.class)
-	                 .setParameter("un", username)
-	                 .setParameter("pw", password)
-	                 .getSingleResult();
-	    } catch (Exception e) {
-	        System.err.println("Invalid login: " + username);
-	        e.printStackTrace();
-	    }
+		try {
+			String jpql = "SELECT u FROM User u WHERE u.username = :un AND u.password = :pw AND u.enabled = true";
+			user = em.createQuery(jpql, User.class).setParameter("un", username).setParameter("pw", password)
+					.getSingleResult();
+		} catch (Exception e) {
+			System.err.println("Invalid login: " + username);
+			e.printStackTrace();
+		}
 
-	    return user;
+		return user;
 	}
 
+	@Override
+	public User register(User user) {
+		em.persist(user);
+		em.flush();
+		return user;
 
+	}
 
 }

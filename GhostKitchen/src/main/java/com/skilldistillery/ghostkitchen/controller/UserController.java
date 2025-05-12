@@ -31,7 +31,7 @@ public class UserController {
 	}
 
 	@PostMapping("login.do")
-	public String useLogin(User user, HttpSession session) {
+	public String userLogin(User user, HttpSession session) {
 		user = userDao.authenticateUser(user.getUsername(), user.getPassword());
 
 		if (user != null) {
@@ -40,8 +40,14 @@ public class UserController {
 		} else {
 			return "login";
 		}
-	
-		
 	}
-	
+		@GetMapping("register.do")
+		public String getRegister(Model model, HttpSession session) {
+		return "register";  
+	}
+		@PostMapping(path = "register.do")
+		public String newRegister(User user, HttpSession session) {
+		    userDao.register(user);
+		    return "register" + user.getId();
+		}
 }
