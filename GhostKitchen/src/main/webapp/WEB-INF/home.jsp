@@ -7,8 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="nav.jsp"/>
 
-<p>Login Test Result: ${SMOKETEST}</p>
+<h1>Ghost Kitchen</h1>
 
 </body>
 </html>

@@ -18,7 +18,7 @@
 <%-- Output user details --%>
 <c:choose>
   <c:when test="${not empty sessionScope.loggedInUser}">
-    <h2>Username: <c:out value="${sessionScope.loggedInUser.userName}" /></h2>
+    <h2>Username: <c:out value="${sessionScope.loggedInUser.username}" /></h2>
   </c:when>
   <c:otherwise>
     <h2>Not Logged In</h2>
