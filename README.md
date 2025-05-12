@@ -35,17 +35,30 @@ Ghost Kitchen, developed by Polymorphic Plague, is a web application showcasing 
  - SQL Workbench
  - Spring Boot
  - Gradle
+<<<<<<< HEAD
  - Bootstrap
  - AWS
  - Tomcat
 
  ## 👻 Database Schema
+=======
+
+## Database Schema
+>>>>>>> fb4ce1e5d39be0eeef8e79e0809d01a2d028a4a9
 
 ![diagram](images/diagram.png)
 [SETUP](images/gettingStarted.md)<br>
 [WIREFRAME](images/wireframe.md)<br>
 
+<<<<<<< HEAD
  ## 👻 Concepts Applied
+=======
+## Setup
+
+[Getting Started](images/gettingStarted.md) 
+
+## Concepts Applied
+>>>>>>> fb4ce1e5d39be0eeef8e79e0809d01a2d028a4a9
 
   - Multi table SQL database creation
   - Conditional Statements
@@ -54,8 +67,21 @@ Ghost Kitchen, developed by Polymorphic Plague, is a web application showcasing 
 
  ## 👻 Lessons Learned
 
+<<<<<<< HEAD
   - 
 
  ## 👻 How to Download and Run
 
  - 
+=======
+    - Mapping Entity with Composite Primary Key
+    ```
+        @Embeddable
+        public class PartyInvitationId implements Serializable {
+        private static final long serialVersionUID = 1L;``
+    ```
+    - 
+  
+[link text](https://example.com)
+![alt text](image.png)
+>>>>>>> fb4ce1e5d39be0eeef8e79e0809d01a2d028a4a9
