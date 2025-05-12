@@ -71,6 +71,11 @@ public class User {
 	@OneToMany(mappedBy="user")
 	private List<Review> reviews;
 	
+	@OneToMany(mappedBy = "user")
+	private List<ReviewComment> reviewComments;
+	
+	
+	
 	public User() {
 		super();
 	}
@@ -208,6 +213,14 @@ public class User {
 
 	public void setReviews(List<Review> reviews) {
 		this.reviews = reviews;
+	}
+
+	public List<ReviewComment> getReviewComments() {
+		return reviewComments;
+	}
+
+	public void setReviewComments(List<ReviewComment> reviewComments) {
+		this.reviewComments = reviewComments;
 	}
 
 	@Override

@@ -44,9 +44,8 @@ class CuisineTypeTest {
 	}
 
 	@Test
-	void test_User_entity_mapping() {
+	void test_CuisineType_entity_mapping() {
 		assertNotNull(cuisineType);
-
 	}
 
 	
