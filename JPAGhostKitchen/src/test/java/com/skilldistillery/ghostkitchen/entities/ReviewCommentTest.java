@@ -1,8 +1,10 @@
 package com.skilldistillery.ghostkitchen.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.beans.PersistenceDelegate;
+import java.util.List;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -44,9 +46,31 @@ class ReviewCommentTest {
 	}
 
 	@Test
-	void test_User_entity_mapping() {
+	void test_ReviewComment_entity_mapping() {
 		assertNotNull(reviewComment);
-
+	}
+	
+	@Test
+	void test_ReviewComment_User_MTO_mapping() {
+		User user = reviewComment.getUser();
+		assertNotNull(user);
+	}
+	
+	@Test
+	void test_ReviewComment_self_join_MTO_mapping() {
+		reviewComment = em.find(ReviewComment.class,3);
+		ReviewComment parentComment = reviewComment.getParentComment();
+		assertNotNull(parentComment);
+		assertEquals(2, parentComment.getId());
+	}
+	
+	@Test
+	void test_ReviewComment_self_join_OTM_mapping() {
+		reviewComment = em.find(ReviewComment.class,2);
+		List<ReviewComment> replies = reviewComment.getReplies();
+		assertNotNull(replies);
+		assertTrue(replies.size() > 0);
+		
 	}
 
 	
