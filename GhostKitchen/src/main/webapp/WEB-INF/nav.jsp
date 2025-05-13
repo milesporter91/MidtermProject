@@ -4,7 +4,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.do">
+    <a class="navbar-brand" href="${pageContext.request.contextPath}/home.do">
       <img
         src="${pageContext.request.contextPath}/images/logo.png"
         alt="Logo"
@@ -28,7 +28,7 @@
     <div class="collapse navbar-collapse" id="mainNavbar">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="index.do">Home</a>
+          <a class="nav-link" href="home.do">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="showAll.do">Show All Restaurants</a>
