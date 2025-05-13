@@ -23,18 +23,18 @@ public class RestaurantDAOImpl implements RestaurantDAO {
 	}
 
 	@Override
-	public Restaurant register(Restaurant restaurant) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public List<Restaurant> showAll() {
 		
 		List<Restaurant> restaurants = null;
 			String jpql = "SELECT r FROM Restaurant r";
 			restaurants = em.createQuery(jpql, Restaurant.class).getResultList();
 		return restaurants;
+	}
+
+	@Override
+	public Restaurant findById(int id) {
+		Restaurant restaurant = em.find(Restaurant.class, id);
+		return restaurant;
 	}
 
 }

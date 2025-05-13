@@ -9,7 +9,7 @@ import com.skilldistillery.ghostkitchen.entities.Restaurant;
 public interface RestaurantDAO {
 	 Restaurant authenticateUser(String username, String password);
 	 
-	 Restaurant register(Restaurant restaurant);
+	 Restaurant findById(int id);
 	 
 	 List<Restaurant> showAll();
 }
