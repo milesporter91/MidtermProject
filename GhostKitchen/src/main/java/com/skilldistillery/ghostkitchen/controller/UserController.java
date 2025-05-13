@@ -1,5 +1,6 @@
 package com.skilldistillery.ghostkitchen.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,13 +42,31 @@ public class UserController {
 			return "login";
 		}
 	}
-		@GetMapping("register.do")
-		public String getRegister(Model model, HttpSession session) {
-		return "register";  
+
+	@GetMapping("register.do")
+	public String getRegister(Model model, HttpSession session) {
+		return "register";
 	}
-		@PostMapping(path = "register.do")
-		public String newRegister(User user, HttpSession session) {
-		    userDao.register(user);
-		    return "register" + user.getId();
-		}
+
+	@PostMapping(path = "register.do")
+	public String newRegister(User user, HttpSession session) {
+		userDao.register(user);
+		session.setAttribute("loggedInUser", user);
+		return "account";
+	}
+
+	@GetMapping("logout.do")
+	public String getLogout(Model model, HttpSession session) {
+		session.removeAttribute("loggedInUser");
+		return "login";
+	}
+
+	@PostMapping(path = "updateUser.do")
+	public String updateUser(Model model, User user) {
+		User updated = userDao.updateUser(user.getId(), user);
+		model.addAttribute("loggedInUser", updated);
+		model.addAttribute("message", "User updated successfully!");
+		return "account";
+	}
+	
 }
