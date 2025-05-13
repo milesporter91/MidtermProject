@@ -25,21 +25,22 @@ public class Review {
 	@ManyToOne 
 	@JoinColumn (name="restaurant_id")
 	private Restaurant restaurant;
-	
-	@OneToMany (mappedBy="review")
-	private List<ReviewComment> reviewComments;
-			
-//	@Column(name="restaurant_id")
-//	private Restaurant restaurant;
-	
 	private String comments;
 	private int rating;
 	private boolean enabled;
 	@Column(name="create_date")
 	private LocalDateTime createDate;
-	
 	@Column(name="last_update")
 	private LocalDateTime lastUpdate;
+	
+	@OneToMany (mappedBy="review")
+	private List<ReviewComment> reviewComments;
+	
+	@OneToMany(mappedBy = "review")
+	private List<ReviewRating> reviewRatings;
+			
+	
+	
 	
 		
 	public Review() {
@@ -116,6 +117,14 @@ public class Review {
 
 	public void setReviewComments(List<ReviewComment> reviewComments) {
 		this.reviewComments = reviewComments;
+	}
+
+	public List<ReviewRating> getReviewRatings() {
+		return reviewRatings;
+	}
+
+	public void setReviewRatings(List<ReviewRating> reviewRatings) {
+		this.reviewRatings = reviewRatings;
 	}
 
 	@Override

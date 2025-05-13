@@ -61,4 +61,18 @@ class RestaurantTest {
 		assertNotNull(reviews);
 }
 	
+	@Test
+	void test_Restaurant_RestaurantTag_MTM_entity_mapping() {
+	List<RestaurantTag> restaurantTags = restaurant.getRestaurantTags();
+		assertNotNull(restaurantTags);
+		assertNotNull(restaurant);
+	}
+	
+	@Test
+	void test_Restaurant_CuisineType_MTM_entity_mapping() {
+		List<CuisineType> cuisineTypes = restaurant.getCuisineTypes();
+		assertNotNull(cuisineTypes);
+		assertNotNull(restaurant);
+	}
+	
 }

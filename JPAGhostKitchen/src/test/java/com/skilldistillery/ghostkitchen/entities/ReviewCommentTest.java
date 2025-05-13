@@ -51,7 +51,15 @@ class ReviewCommentTest {
 	}
 	
 	@Test
+	void test_ReviewComment_Review_MTO_mapping() {
+		assertNotNull(reviewComment);
+		Review review = reviewComment.getReview();
+		assertNotNull(review);
+	}
+	
+	@Test
 	void test_ReviewComment_User_MTO_mapping() {
+		assertNotNull(reviewComment);
 		User user = reviewComment.getUser();
 		assertNotNull(user);
 	}

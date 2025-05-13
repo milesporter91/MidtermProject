@@ -1,8 +1,8 @@
 package com.skilldistillery.ghostkitchen.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import java.beans.PersistenceDelegate;
+import java.util.List;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -54,7 +54,13 @@ class RestaurantTagTest {
 		User user = restaurantTag.getUser();
 		assertNotNull(user);
 		assertNotNull(restaurantTag);
-
+	}
+	
+	@Test
+	void test_RestaurantTag_Restaurant_MTM_entity_mapping() {
+	List<Restaurant> restaurants = restaurantTag.getRestaurants();
+		assertNotNull(restaurants);
+		assertNotNull(restaurantTag);
 	}
 	
 }

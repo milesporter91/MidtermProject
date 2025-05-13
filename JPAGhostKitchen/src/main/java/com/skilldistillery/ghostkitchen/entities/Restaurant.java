@@ -19,9 +19,6 @@ public class Restaurant {
 	@GeneratedValue
 	private int id;
 	private String name;
-	//OneToOne
-//	@Column(name="address_id")
-//	private Address address;
 	
 	private boolean enabled;
 	@Column(name="image_url")
@@ -51,6 +48,15 @@ public class Restaurant {
 	
 	@OneToMany(mappedBy="restaurant")
 	private List<Review> reviews;
+	
+	@ManyToMany(mappedBy = "restaurants")
+	private List<RestaurantTag> restaurantTags;
+	
+	@ManyToMany(mappedBy = "restaurants")
+	private List<CuisineType> cuisineTypes;
+	
+	@ManyToMany(mappedBy = "restaurants")
+	private List<RestaurantType> restaurantTypes;
 	
 	public Restaurant() {
 		super();
@@ -158,6 +164,30 @@ public class Restaurant {
 
 	public void setReviews(List<Review> reviews) {
 		this.reviews = reviews;
+	}
+
+	public List<RestaurantTag> getRestaurantTags() {
+		return restaurantTags;
+	}
+
+	public void setRestaurantTags(List<RestaurantTag> restaurantTags) {
+		this.restaurantTags = restaurantTags;
+	}
+
+	public List<CuisineType> getCuisineTypes() {
+		return cuisineTypes;
+	}
+
+	public void setCuisineTypes(List<CuisineType> cuisineTypes) {
+		this.cuisineTypes = cuisineTypes;
+	}
+
+	public List<RestaurantType> getRestaurantTypes() {
+		return restaurantTypes;
+	}
+
+	public void setRestaurantTypes(List<RestaurantType> restaurantTypes) {
+		this.restaurantTypes = restaurantTypes;
 	}
 
 	@Override

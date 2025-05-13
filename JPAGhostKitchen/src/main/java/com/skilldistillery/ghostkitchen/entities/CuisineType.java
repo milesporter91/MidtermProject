@@ -1,5 +1,6 @@
 package com.skilldistillery.ghostkitchen.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -7,6 +8,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,6 +27,12 @@ public class CuisineType {
 	
 	@Column(name="image_url")
 	private String imageUrl;
+	
+	@ManyToMany
+	@JoinTable(name="restaurant_cuisine_type",
+	joinColumns=@JoinColumn(name="restaurant_id"),
+	inverseJoinColumns=@JoinColumn(name="cuisine_type_id"))
+	private List<Restaurant> restaurants;
 
 	public CuisineType() {
 		super();
@@ -58,6 +68,14 @@ public class CuisineType {
 
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
+	}
+
+	public List<Restaurant> getRestaurants() {
+		return restaurants;
+	}
+
+	public void setRestaurants(List<Restaurant> restaurants) {
+		this.restaurants = restaurants;
 	}
 
 	@Override

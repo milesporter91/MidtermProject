@@ -2,6 +2,9 @@ package com.skilldistillery.ghostkitchen.entities;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
 
 @Entity
@@ -11,6 +14,21 @@ public class ReviewRating {
 	private ReviewRatingId id;
 	
 	private Boolean rating;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	@MapsId(value = "userId")
+	private User user;
+	
+	@ManyToOne
+	@JoinColumn(name = "review_id")
+	@MapsId(value = "reviewId")
+	private Review review;
+	
+//	@ManyToOne
+//	@JoinColumn(name = "party_id") // DB column name
+//	@MapsId(value = "partyId")     // Field in ID class
+//	private Party party;
 	
 	public ReviewRating() {
 		super();
@@ -30,6 +48,22 @@ public class ReviewRating {
 
 	public void setRating(Boolean rating) {
 		this.rating = rating;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Review getReview() {
+		return review;
+	}
+
+	public void setReview(Review review) {
+		this.review = review;
 	}
 
 	@Override

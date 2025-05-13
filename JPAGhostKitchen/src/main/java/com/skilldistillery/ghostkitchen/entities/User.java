@@ -60,9 +60,7 @@ public class User {
 	@ManyToMany
 	@JoinTable(name="favorite_restaurant",
 		joinColumns=@JoinColumn(name="restaurant_id"), 
-		inverseJoinColumns=@JoinColumn(name="user_id")
-	)
-	
+		inverseJoinColumns=@JoinColumn(name="user_id"))
 	private List<Restaurant> favoriteRestaurants; 
 
 	@OneToMany(mappedBy = "user")
@@ -72,9 +70,10 @@ public class User {
 	private List<Review> reviews;
 	
 	@OneToMany(mappedBy = "user")
+	private List<ReviewRating> reviewRatings;
+	
+	@OneToMany(mappedBy = "user")
 	private List<ReviewComment> reviewComments;
-	
-	
 	
 	public User() {
 		super();
@@ -213,6 +212,14 @@ public class User {
 
 	public void setReviews(List<Review> reviews) {
 		this.reviews = reviews;
+	}
+
+	public List<ReviewRating> getReviewRatings() {
+		return reviewRatings;
+	}
+
+	public void setReviewRatings(List<ReviewRating> reviewRatings) {
+		this.reviewRatings = reviewRatings;
 	}
 
 	public List<ReviewComment> getReviewComments() {
