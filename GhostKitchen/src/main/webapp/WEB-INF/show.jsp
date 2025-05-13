@@ -26,44 +26,8 @@
 <br>
 <body>
 	<jsp:include page="nav.jsp" />
-
-	<table class = "primaryTest">
-		<thead>
-			<tr class="column_title">
-				<th>Restaurant Name</th>
-				<th>Cuisine Type</th>
-				<th>Business Hours</th>
-				<th>Phone</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="restaurant" items="${restaurants}">
-				<tr>
-					<td><a href="show.do?id=${restaurant.id}"> ${restaurant.name }</a>
-					</td>
-			<%-- 		<td>${restaurant.cuisineTypes }</td> --%>
-					<td>${restaurant.openTime } - ${restaurant.closeTime }</td>
-					<%-- <td>${restaurant.address.phone }</td> --%>
-				
-				</tr>
-			</c:forEach>
-
-		</tbody>
-	</table>
-
-
-<br>
-<br>
-<br>
-
-<footer>
-    <img
-      src="images/ghostlogo.png"
-      alt="Footer Logo"
-      style="height:100px;"
-    />
-  </footer>
-  
-  
+	
+	<p>${restaurant.name }</p>
+	
 </body>
 </html>
