@@ -22,6 +22,8 @@
 <title>All Restaurants</title>
 
 </head>
+
+<br>
 <body>
 	<jsp:include page="nav.jsp" />
 
@@ -48,5 +50,19 @@
 		</tbody>
 	</table>
 
+
+<br>
+<br>
+<br>
+
+<footer>
+    <img
+      src="images/ghostlogo.png"
+      alt="Footer Logo"
+      style="height:100px;"
+    />
+  </footer>
+  
+  
 </body>
 </html>

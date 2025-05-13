@@ -17,6 +17,7 @@
 	integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/main.css">
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Account Profile</title>
@@ -72,5 +73,16 @@
   </c:otherwise>
 </c:choose>
 
+<br>
+<br>
+<br>
+
+ <footer>
+    <img
+      src="images/ghostlogo.png"
+      alt="Footer Logo"
+      style="height:100px;"
+    />
+  </footer>
 </body>
 </html>
