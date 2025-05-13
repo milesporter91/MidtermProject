@@ -23,6 +23,8 @@
 
 </head>
 <body>
+<jsp:include page="nav.jsp"/>
+
 	
   
 <c:choose>

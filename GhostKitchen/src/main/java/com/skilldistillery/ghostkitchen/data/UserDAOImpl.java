@@ -1,7 +1,10 @@
 package com.skilldistillery.ghostkitchen.data;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.ghostkitchen.entities.Restaurant;
 import com.skilldistillery.ghostkitchen.entities.User;
 
 import jakarta.persistence.EntityManager;
@@ -52,6 +55,15 @@ public class UserDAOImpl implements UserDAO {
 		managedUser.setImageUrl(user.getImageUrl());
 		managedUser.setAboutMe(user.getAboutMe());
 		return managedUser; 
+	}
+
+	@Override
+	public List<Restaurant> showAll() {
+		
+		List<Restaurant> restaurants = null;
+			String jpql = "SELECT r FROM Restaurant r";
+			restaurants = em.createQuery(jpql, Restaurant.class).getResultList();
+		return restaurants;
 	}
 
 }
