@@ -1,6 +1,5 @@
 package com.skilldistillery.ghostkitchen.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.skilldistillery.ghostkitchen.data.UserDAO;
-import com.skilldistillery.ghostkitchen.entities.Restaurant;
 import com.skilldistillery.ghostkitchen.entities.User;
 
 import jakarta.servlet.http.HttpSession;
@@ -71,12 +69,4 @@ public class UserController {
 		return "account";
 	}
 	
-	@GetMapping("showAll.do")
-	public String showAll (Model model) {
-		List<Restaurant> restaurants = userDao.showAll();
-				model.addAttribute("restaurants", restaurants);
-		
-		return "showall";
-		
-	}
 }

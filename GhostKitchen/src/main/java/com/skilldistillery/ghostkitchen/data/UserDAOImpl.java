@@ -57,13 +57,5 @@ public class UserDAOImpl implements UserDAO {
 		return managedUser; 
 	}
 
-	@Override
-	public List<Restaurant> showAll() {
-		
-		List<Restaurant> restaurants = null;
-			String jpql = "SELECT r FROM Restaurant r";
-			restaurants = em.createQuery(jpql, Restaurant.class).getResultList();
-		return restaurants;
-	}
 
 }
