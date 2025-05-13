@@ -23,11 +23,17 @@
 
 </head>
 
+<nav class>
 <br>
 <body>
 	<jsp:include page="nav.jsp" />
 	
-	<p>${restaurant.name }</p>
 	
+	<h1>${restaurant.name }</h1>
+	
+	
+	
+	
+	</nav>
 </body>
 </html>

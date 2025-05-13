@@ -47,6 +47,33 @@
 				
 				</tr>
 			</c:forEach>
+<div id="carouselExampleIndicators" class="carousel slide">
+
+
+
+  <div class="carousel-indicators">
+		<c:forEach var="restaurant" items="${restaurants}">
+		<div class="carousel-item">
+			<p>${retaurants.name }</p>
+			<p>${retaurants.address }</p>
+			<p>${retaurants.enabled }</p>
+			<p>${retaurants.imageUrl }</p>
+			<p>${retaurants.websiteUrl }</p>
+			<p>${retaurants.description }</p>
+			<p>${retaurants.priceRange }</p>
+			<p>${retaurants.userId }</p>
+			<p>${retaurants.openTime}</p>
+			<p>${retaurants.closeTime}</p>
+			<p>${retaurants.createDate }</p>
+			<p>${retaurants.lastUpdate }</p>
+			</div>
+</c:forEach>
+</div>
+</div>
+
+
+
+
 
 		</tbody>
 	</table>
