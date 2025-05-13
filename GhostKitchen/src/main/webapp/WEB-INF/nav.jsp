@@ -39,6 +39,7 @@
           <li class="nav-item"><a class="nav-link" href="register.do">Register</a></li>
         </c:if>
         <c:if test="${not empty sessionScope.loggedInUser}">
+          <li class="nav-item"><a class="nav-link" href="addRestaurant.do">Create Restaurant</a></li>
           <li class="nav-item"><a class="nav-link" href="logout.do">Logout</a></li>
         </c:if>
       </ul>
