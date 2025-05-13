@@ -26,9 +26,9 @@ public class RestaurantTag {
 	private User user;
 	
 	@ManyToMany
-	@JoinTable(name="restaurant_has_restaurant_tag",
-	joinColumns=@JoinColumn(name="restaurant_id"),
-	inverseJoinColumns=@JoinColumn(name="restaurant_tag_id"))
+	@JoinTable(name="restaurant_has_restaurant_tag", 
+	joinColumns=@JoinColumn(name="restaurant_tag_id"),
+	inverseJoinColumns=@JoinColumn(name="restaurant_id"))
 	private List<Restaurant> restaurants;
 
 	public RestaurantTag() {

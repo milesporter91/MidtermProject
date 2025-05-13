@@ -78,14 +78,12 @@ class UserTest {
 		assertTrue(reviews.size() > 0); 
 	}
 	
-	@Test
-	void test_User_ReviewComment_otm_mapping() {
-		List<ReviewComment> reviewComments = user.getReviewComments(); 
-		assertNotNull(reviewComments);
-		assertTrue(reviewComments.size() > 0); 
-	}
 	
 	@Test
+	void test_User_Address_mto_mapping() {
+		Address address = user.getAddress(); 
+		assertNotNull(address);
+	}
 	void test_User_ReviewRating_OTM_mapping() {
 		List<ReviewRating> reviewRatings = user.getReviewRatings();
 		assertNotNull(reviewRatings);

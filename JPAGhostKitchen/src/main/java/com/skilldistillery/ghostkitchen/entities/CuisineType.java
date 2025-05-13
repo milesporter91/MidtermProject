@@ -25,14 +25,17 @@ public class CuisineType {
 	
 	private String description;
 	
+	@ManyToMany
+	@JoinTable(name="restaurant_cuisine_type", 
+	joinColumns=@JoinColumn(name="cuisine_type_id"),
+	inverseJoinColumns=@JoinColumn(name="restaurant_id"))
+	private List<Restaurant> restaurants;
+	
+
+	
 	@Column(name="image_url")
 	private String imageUrl;
 	
-	@ManyToMany
-	@JoinTable(name="restaurant_cuisine_type",
-	joinColumns=@JoinColumn(name="restaurant_id"),
-	inverseJoinColumns=@JoinColumn(name="cuisine_type_id"))
-	private List<Restaurant> restaurants;
 
 	public CuisineType() {
 		super();

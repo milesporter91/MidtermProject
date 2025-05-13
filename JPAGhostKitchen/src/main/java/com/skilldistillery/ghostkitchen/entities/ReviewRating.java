@@ -25,11 +25,6 @@ public class ReviewRating {
 	@MapsId(value = "reviewId")
 	private Review review;
 	
-//	@ManyToOne
-//	@JoinColumn(name = "party_id") // DB column name
-//	@MapsId(value = "partyId")     // Field in ID class
-//	private Party party;
-	
 	public ReviewRating() {
 		super();
 	}
@@ -49,7 +44,6 @@ public class ReviewRating {
 	public void setRating(Boolean rating) {
 		this.rating = rating;
 	}
-
 	public User getUser() {
 		return user;
 	}

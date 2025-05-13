@@ -29,9 +29,9 @@ public class RestaurantType {
 	private String description;
 	
 	@ManyToMany
-	@JoinTable(name="restaurant_has_restaurant_type",
-	joinColumns=@JoinColumn(name="restaurant_id"),
-	inverseJoinColumns=@JoinColumn(name="restaurant_type_id"))
+	@JoinTable(name="restaurant_has_restaurant_type", 
+	joinColumns=@JoinColumn(name="restaurant_type_id"),
+	inverseJoinColumns=@JoinColumn(name="restaurant_id"))
 	private List<Restaurant> restaurants;
 	
 	public RestaurantType() {

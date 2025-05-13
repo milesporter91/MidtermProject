@@ -20,6 +20,10 @@ public class Restaurant {
 	private int id;
 	private String name;
 	
+	@ManyToOne
+	@JoinColumn(name="address_id")
+	private Address address;
+	
 	private boolean enabled;
 	@Column(name="image_url")
 	private String imageUrl;
@@ -166,6 +170,13 @@ public class Restaurant {
 		this.reviews = reviews;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 	public List<RestaurantTag> getRestaurantTags() {
 		return restaurantTags;
 	}

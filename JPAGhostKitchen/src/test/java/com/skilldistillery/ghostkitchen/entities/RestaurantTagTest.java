@@ -1,6 +1,7 @@
 package com.skilldistillery.ghostkitchen.entities;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -56,11 +57,12 @@ class RestaurantTagTest {
 		assertNotNull(restaurantTag);
 	}
 	
+
 	@Test
-	void test_RestaurantTag_Restaurant_MTM_entity_mapping() {
-	List<Restaurant> restaurants = restaurantTag.getRestaurants();
+	void test_RestaurantTag_Restaurant_mtm_mapping() {
+		List<Restaurant> restaurants = restaurantTag.getRestaurants(); 
 		assertNotNull(restaurants);
-		assertNotNull(restaurantTag);
+		assertTrue(restaurants.size() > 0); 
 	}
 	
 }

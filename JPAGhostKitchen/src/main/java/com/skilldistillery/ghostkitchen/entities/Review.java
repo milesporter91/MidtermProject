@@ -25,6 +25,10 @@ public class Review {
 	@ManyToOne 
 	@JoinColumn (name="restaurant_id")
 	private Restaurant restaurant;
+	
+	@OneToMany (mappedBy="review")
+	private List<ReviewComment> reviewComments;
+			
 	private String comments;
 	private int rating;
 	private boolean enabled;
@@ -33,14 +37,8 @@ public class Review {
 	@Column(name="last_update")
 	private LocalDateTime lastUpdate;
 	
-	@OneToMany (mappedBy="review")
-	private List<ReviewComment> reviewComments;
-	
 	@OneToMany(mappedBy = "review")
 	private List<ReviewRating> reviewRatings;
-			
-	
-	
 	
 		
 	public Review() {

@@ -60,6 +60,7 @@ class ReviewRatingTest {
 		Review review = reviewRating.getReview();
 		assertNotNull(review);
 	}
+	
 
 	
 }
