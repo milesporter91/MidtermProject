@@ -48,6 +48,21 @@ public class UserController {
 		@PostMapping(path = "register.do")
 		public String newRegister(User user, HttpSession session) {
 		    userDao.register(user);
-		    return "register" + user.getId();
+		    session.setAttribute("loggedInUser", user);
+		    return "account";
 		}
+		@GetMapping("logout.do")
+		public String getLogout(Model model, HttpSession session) {
+		session.removeAttribute("loggedInUser"); 
+			return "login";  
+		}
+		@PostMapping(path = "updateUser.do")
+		public String updateUser(Model model, User user) {
+		    User updated = userDao.updateUser(user.getId(), user);
+		    model.addAttribute("user", updated);
+		    model.addAttribute("message", "User updated successfully!");
+		    return "account";
+		}
+		
+		
 }

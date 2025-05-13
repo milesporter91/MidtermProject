@@ -33,10 +33,19 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User register(User user) {
+		user.setEnabled(true); 
+//		if(user.getImageUrl().equals("")|| user.getImageUrl()==null) {
+//			user.setImageUrl("imageURL");
+//    	}
 		em.persist(user);
 		em.flush();
 		return user;
 
+	}
+
+	@Override
+	public User updateUser(int id, User user) {
+		  return em.merge(user); 
 	}
 
 }

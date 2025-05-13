@@ -18,7 +18,6 @@
 	Email<input type="text" name="email"/><br>
 	Username<input type="text" name="username"/><br>
 	Password<input type="text" name="password"/><br>
-	Address id<input type="number" name="address"/><br>
 	
 	<input type="submit" value="Register" > 
 </form>
