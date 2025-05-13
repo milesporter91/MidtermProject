@@ -1,7 +1,7 @@
 package com.skilldistillery.ghostkitchen.entities;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
@@ -65,18 +65,20 @@ class ReviewCommentTest {
 	}
 	
 	@Test
-	void test_ReviewComment_MTO_self_join_mapping() {
-		assertNotNull(reviewComment);
-		ReviewComment inReplyToReviewComment = reviewComment.getInReplyToReviewComment();
-		assertNull(inReplyToReviewComment);
+	void test_ReviewComment_self_join_MTO_mapping() {
+		reviewComment = em.find(ReviewComment.class,3);
+		ReviewComment parentComment = reviewComment.getParentComment();
+		assertNotNull(parentComment);
+		assertEquals(2, parentComment.getId());
 	}
 	
 	@Test
-	void test_ReviewComment_OTM_self_join_mapping() {
-		assertNotNull(reviewComment);
+	void test_ReviewComment_self_join_OTM_mapping() {
+		reviewComment = em.find(ReviewComment.class,2);
 		List<ReviewComment> replies = reviewComment.getReplies();
 		assertNotNull(replies);
-		assertTrue(replies.size() == 0); // Fix to > 0 when additional inserts are added to DB
+		assertTrue(replies.size() > 0);
+		
 	}
 
 	

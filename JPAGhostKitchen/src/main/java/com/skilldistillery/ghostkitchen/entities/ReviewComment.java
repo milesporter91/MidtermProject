@@ -34,9 +34,9 @@ public class ReviewComment {
 	
 	@ManyToOne
 	@JoinColumn(name="in_reply_to_id")
-	private ReviewComment inReplyToReviewComment;
+	private ReviewComment parentComment;
 	
-	@OneToMany(mappedBy="inReplyToReviewComment")
+	@OneToMany(mappedBy = "parentComment")
 	private List<ReviewComment> replies;
 	
 	public ReviewComment() {
@@ -91,12 +91,12 @@ public class ReviewComment {
 		this.user = user;
 	}
 
-	public ReviewComment getInReplyToReviewComment() {
-		return inReplyToReviewComment;
+	public ReviewComment getParentComment() {
+		return parentComment;
 	}
 
-	public void setInReplyToReviewComment(ReviewComment inReplyToReviewComment) {
-		this.inReplyToReviewComment = inReplyToReviewComment;
+	public void setParentComment(ReviewComment reviewReply) {
+		this.parentComment = reviewReply;
 	}
 
 	public List<ReviewComment> getReplies() {

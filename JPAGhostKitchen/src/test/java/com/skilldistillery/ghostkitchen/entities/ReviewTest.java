@@ -45,20 +45,20 @@ class ReviewTest {
 	}
 
 	@Test
-	void test_ReviewTest_entity_mapping() {
+	void test_Review_entity_mapping() {
 		assertNotNull(review);
 
 	}
 	
 	@Test
-	void test_ReviewTest_User_MTO_entity_mapping() {
+	void test_Review_User_MTO_entity_mapping() {
 		User user = review.getUser();
 		assertNotNull(user);
 
 	}
 	
 	@Test
-	void test_ReviewTest_ReviewComments_OTM_entity_mapping() {
+	void test_Review_ReviewComment_OTM_entity_mapping() {
 		List<ReviewComment> reviewComments = review.getReviewComments(); 
 		assertNotNull(reviewComments);
 		assertTrue(reviewComments.size() > 0);
