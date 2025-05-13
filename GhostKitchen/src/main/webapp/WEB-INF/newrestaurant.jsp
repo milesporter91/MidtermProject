@@ -81,9 +81,6 @@
 				<td><input type="number" name="priceRange" step="1" min="1" max="5"></td>
 			</tr>
 			<tr>
-				<td><input type="hidden" name="userId" value="${loggedInUser.id }"></td>
-			</tr>
-			<tr>
 				<td><label for="openTime">Add Opening Time:</label></td>
 				<td><input type="time" name="openTime"></td>
 			</tr>
