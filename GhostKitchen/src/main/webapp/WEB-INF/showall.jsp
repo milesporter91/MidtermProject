@@ -25,7 +25,7 @@
 <body>
 	<jsp:include page="nav.jsp" />
 
-	<table>
+	<table class = "primaryTest">
 		<thead>
 			<tr class="column_title">
 				<th>Restaurant Name</th>
