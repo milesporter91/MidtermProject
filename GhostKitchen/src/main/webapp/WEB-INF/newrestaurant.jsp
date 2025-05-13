@@ -57,13 +57,6 @@
 				<td><input type="text" name="address.phone"></td>
 			</tr>
 			<tr>
-				<td><label for="enabled">Enabled:</label></td>
-				<td><input type="radio" name="enabled" id="enabledYes"
-					value="true" required /> <label for="enabledYes">Yes</label> <input
-					type="radio" name="enabled" id="enabledNo" value="false" /> <label
-					for="enabledNo">No</label></td>
-			</tr>
-			<tr>
 				<td><label for="imageUrl">Add Image Url:</label></td>
 				<td><input type="text" name="imageUrl"></td>
 			</tr>

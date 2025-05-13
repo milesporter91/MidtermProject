@@ -53,7 +53,7 @@
 
   <div class="carousel-indicators">
 		<c:forEach var="restaurant" items="${restaurants}">
-		<div class="carousel-item">
+		<div class="carousel-item"></div>
 			<p>${retaurants.name }</p>
 			<p>${retaurants.address }</p>
 			<p>${retaurants.enabled }</p>
@@ -66,7 +66,7 @@
 			<p>${retaurants.closeTime}</p>
 			<p>${retaurants.createDate }</p>
 			<p>${retaurants.lastUpdate }</p>
-			</div>
+			
 </c:forEach>
 </div>
 </div>

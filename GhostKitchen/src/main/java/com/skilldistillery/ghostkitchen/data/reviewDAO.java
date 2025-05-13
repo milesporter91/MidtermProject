@@ -6,14 +6,14 @@ import com.skilldistillery.ghostkitchen.entities.Restaurant;
 
 
 
-public interface RestaurantDAO {
+public interface reviewDAO {
 	 Restaurant authenticateUser(String username, String password);
 	 
 	 Restaurant findById(int id);
 	 
 	 List<Restaurant> showAll();
-	 Restaurant create(Restaurant restaurant, int userId); 
-	 Restaurant update(Restaurant restaurant, int id); 
+	 Restaurant create(Restaurant restaurant); 
+	 Restaurant update(Restaurant restaurant); 
 	 boolean delete(int id); 
 	 
 }

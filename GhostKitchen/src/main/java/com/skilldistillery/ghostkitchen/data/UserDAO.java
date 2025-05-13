@@ -9,7 +9,8 @@ public interface UserDAO {
 	User register(User user);
 
 	User updateUser(int id, User user);
-	
+	 User create(User user, int id); 
+	 boolean delete(int id); 
 	
 
 }

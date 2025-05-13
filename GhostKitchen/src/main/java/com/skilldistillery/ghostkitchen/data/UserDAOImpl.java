@@ -57,5 +57,18 @@ public class UserDAOImpl implements UserDAO {
 		return managedUser; 
 	}
 
+	@Override
+	public User create(User user, int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-}
+	@Override
+	public boolean delete(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	}
+
