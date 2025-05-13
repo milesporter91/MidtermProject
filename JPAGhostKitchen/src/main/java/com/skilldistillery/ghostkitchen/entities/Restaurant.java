@@ -54,10 +54,10 @@ public class Restaurant {
 	private List<Review> reviews;
 	
 	@ManyToMany(mappedBy = "restaurants")
-	private List<CuisineType> cuisineTypes;
+	private List<RestaurantTag> restaurantTags;
 	
 	@ManyToMany(mappedBy = "restaurants")
-	private List<RestaurantTag> restaurantTags;
+	private List<CuisineType> cuisineTypes;
 	
 	@ManyToMany(mappedBy = "restaurants")
 	private List<RestaurantType> restaurantTypes;
@@ -177,6 +177,13 @@ public class Restaurant {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+	public List<RestaurantTag> getRestaurantTags() {
+		return restaurantTags;
+	}
+
+	public void setRestaurantTags(List<RestaurantTag> restaurantTags) {
+		this.restaurantTags = restaurantTags;
+	}
 
 	public List<CuisineType> getCuisineTypes() {
 		return cuisineTypes;
@@ -184,14 +191,6 @@ public class Restaurant {
 
 	public void setCuisineTypes(List<CuisineType> cuisineTypes) {
 		this.cuisineTypes = cuisineTypes;
-	}
-
-	public List<RestaurantTag> getRestaurantTags() {
-		return restaurantTags;
-	}
-
-	public void setRestaurantTags(List<RestaurantTag> restaurantTags) {
-		this.restaurantTags = restaurantTags;
 	}
 
 	public List<RestaurantType> getRestaurantTypes() {

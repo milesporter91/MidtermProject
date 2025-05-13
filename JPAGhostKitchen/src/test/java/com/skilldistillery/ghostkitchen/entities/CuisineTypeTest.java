@@ -1,8 +1,8 @@
 package com.skilldistillery.ghostkitchen.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.beans.PersistenceDelegate;
 import java.util.List;
 
 import org.junit.jupiter.api.AfterAll;

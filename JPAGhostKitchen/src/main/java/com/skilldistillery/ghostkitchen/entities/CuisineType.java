@@ -35,6 +35,7 @@ public class CuisineType {
 	
 	@Column(name="image_url")
 	private String imageUrl;
+	
 
 	public CuisineType() {
 		super();

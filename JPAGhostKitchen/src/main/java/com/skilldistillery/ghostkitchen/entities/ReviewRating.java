@@ -16,19 +16,14 @@ public class ReviewRating {
 	private Boolean rating;
 	
 	@ManyToOne
-	@JoinColumn(name = "review_id")
-	@MapsId(value = "reviewId")
-	private Review review;
-	
-	@ManyToOne
 	@JoinColumn(name = "user_id")
 	@MapsId(value = "userId")
 	private User user;
-//	
-//	@ManyToOne
-//	@JoinColumn(name = "party_id") // DB column name
-//	@MapsId(value = "partyId")     // Field in ID class
-//	private Party party;
+	
+	@ManyToOne
+	@JoinColumn(name = "review_id")
+	@MapsId(value = "reviewId")
+	private Review review;
 	
 	public ReviewRating() {
 		super();
@@ -49,6 +44,13 @@ public class ReviewRating {
 	public void setRating(Boolean rating) {
 		this.rating = rating;
 	}
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public Review getReview() {
 		return review;
@@ -56,14 +58,6 @@ public class ReviewRating {
 
 	public void setReview(Review review) {
 		this.review = review;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 	@Override
