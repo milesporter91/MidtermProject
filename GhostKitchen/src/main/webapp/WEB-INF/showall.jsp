@@ -37,11 +37,11 @@
 		<tbody>
 			<c:forEach var="restaurant" items="${restaurants}">
 				<tr>
-					<td><a href="${restaurant.websiteUrl }"> ${restaurant.name }</a>
+					<td><a href="${restaurant.websiteUrl }" target="_blank"> ${restaurant.name }</a>
 					</td>
 			<%-- 		<td>${restaurant.cuisineTypes }</td> --%>
 					<td>${restaurant.openTime } - ${restaurant.closeTime }</td>
-					<td>${restaurant.address.phone }</td>
+					<%-- <td>${restaurant.address.phone }</td> --%>
 				</tr>
 			</c:forEach>
 
