@@ -23,29 +23,35 @@
 
 </head>
 <body>
-	  <div class="col-md-8">
+	
+  
+<c:choose>
+  <c:when test="${not empty sessionScope.loggedInUser}">
+    <h2>Username: <c:out value="${sessionScope.loggedInUser.username}" /></h2>
+
+ <div class="col-md-8">
     <form action="updateUser.do" method="POST">
-      <input type="hidden" name="id" value="${user.id}" />
+      <input type="hidden" name="id" value="${loggedInUser.id}" />
       <table class="table">
         <tr>
           <td><label for="firstName">Edit First Name:</label></td>
-          <td><input type="text" name="firstName" value="${user.firstName}" /></td>
+          <td><input type="text" name="firstName" value="${loggedInUser.firstName}" /></td>
         </tr>
         <tr>
           <td><label for="lastName">Edit Last Name:</label></td>
-          <td><input type="text" name="lastName" value="${user.lastName}" /></td>
+          <td><input type="text" name="lastName" value="${loggedInUser.lastName}" /></td>
         </tr>
         <tr>
           <td><label for="email">Edit Email :</label></td>
-          <td><input type="text" name="email" value="${user.email}" /></td>
+          <td><input type="text" name="email" value="${loggedInUser.email}" /></td>
         </tr>
         <tr>
           <td><label for="imageUrl">Edit Image URL:</label></td>
-          <td><input type="text" name="imageUrl" value="${user.imageUrl}" /></td>
+          <td><input type="text" name="imageUrl" value="${loggedInUser.imageUrl}" /></td>
         </tr>
         <tr>
           <td><label for="aboutMe">Edit About Me:</label></td>
-          <td><input type="text" name="aboutMe" value="${user.aboutMe}" /></td>
+          <td><input type="text" name="aboutMe" value="${loggedInUser.aboutMe}" /></td>
         </tr>
         <tr>
           <td colspan="2">
@@ -57,10 +63,6 @@
     </form>
   </div>
   
-<c:choose>
-  <c:when test="${not empty sessionScope.loggedInUser}">
-    <h2>Username: <c:out value="${sessionScope.loggedInUser.username}" /></h2>
-    <table class=>
     
   </c:when>
   <c:otherwise>

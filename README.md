@@ -61,7 +61,7 @@ Ghost Kitchen, developed by Polymorphic Plague, is a web application showcasing 
         @Embeddable
         public class PartyInvitationId implements Serializable {
         private static final long serialVersionUID = 1L;
-    - 
+    -  best to have specific jsp for each specific tasks
 
     
 

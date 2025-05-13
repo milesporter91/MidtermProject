@@ -45,7 +45,13 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User updateUser(int id, User user) {
-		  return em.merge(user); 
+		User managedUser = em.find(User.class, id); 
+		managedUser.setFirstName(user.getFirstName());
+		managedUser.setLastName(user.getLastName());
+		managedUser.setEmail(user.getEmail());
+		managedUser.setImageUrl(user.getImageUrl());
+		managedUser.setAboutMe(user.getAboutMe());
+		return managedUser; 
 	}
 
 }

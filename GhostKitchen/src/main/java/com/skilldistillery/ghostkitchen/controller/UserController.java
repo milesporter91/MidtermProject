@@ -59,7 +59,7 @@ public class UserController {
 		@PostMapping(path = "updateUser.do")
 		public String updateUser(Model model, User user) {
 		    User updated = userDao.updateUser(user.getId(), user);
-		    model.addAttribute("user", updated);
+		    model.addAttribute("loggedInUser", updated);
 		    model.addAttribute("message", "User updated successfully!");
 		    return "account";
 		}
