@@ -27,7 +27,7 @@
 <body>
 	<jsp:include page="nav.jsp" />
 
-	<table class = "primaryTest">
+	<table class="primaryTest">
 		<thead>
 			<tr class="column_title">
 				<th>Restaurant Name</th>
@@ -39,37 +39,41 @@
 		<tbody>
 			<c:forEach var="restaurant" items="${restaurants}">
 				<tr>
-					<td><a href="showRestaurant.do?id=${restaurant.id}"> ${restaurant.name }</a>
-					</td>
-			<%-- 		<td>${restaurant.cuisineTypes }</td> --%>
-					<td>${restaurant.openTime } - ${restaurant.closeTime }</td>
-					<%-- <td>${restaurant.address.phone }</td> --%>
-				
+					<td><a href="showRestaurant.do?id=${restaurant.id}">
+							${restaurant.name }</a></td>
+					<td>${restaurant.cuisineTypes }</td>
+					<td>${restaurant.openTime }-${restaurant.closeTime }</td>
+					<td>${restaurant.address.phone }</td>
+					<td><form action="disableRestuarant.do" method="POST">
+							<input type="hidden" name="restaurantId" value="${restaurant.id}"> <input
+								type="submit" class="btn btn-danger" value="Delete" />
+						</form></td>
+
 				</tr>
 			</c:forEach>
-<div id="carouselExampleIndicators" class="carousel slide">
+			<div id="carouselExampleIndicators" class="carousel slide">
 
 
 
-  <div class="carousel-indicators">
-		<c:forEach var="restaurant" items="${restaurants}">
-		<div class="carousel-item"></div>
-			<p>${retaurants.name }</p>
-			<p>${retaurants.address }</p>
-			<p>${retaurants.enabled }</p>
-			<p>${retaurants.imageUrl }</p>
-			<p>${retaurants.websiteUrl }</p>
-			<p>${retaurants.description }</p>
-			<p>${retaurants.priceRange }</p>
-			<p>${retaurants.userId }</p>
-			<p>${retaurants.openTime}</p>
-			<p>${retaurants.closeTime}</p>
-			<p>${retaurants.createDate }</p>
-			<p>${retaurants.lastUpdate }</p>
-			
-</c:forEach>
-</div>
-</div>
+				<div class="carousel-indicators">
+					<c:forEach var="restaurant" items="${restaurants}">
+						<div class="carousel-item"></div>
+						<p>${retaurants.name }</p>
+						<p>${retaurants.address }</p>
+						<p>${retaurants.enabled }</p>
+						<p>${retaurants.imageUrl }</p>
+						<p>${retaurants.websiteUrl }</p>
+						<p>${retaurants.description }</p>
+						<p>${retaurants.priceRange }</p>
+						<p>${retaurants.userId }</p>
+						<p>${retaurants.openTime}</p>
+						<p>${retaurants.closeTime}</p>
+						<p>${retaurants.createDate }</p>
+						<p>${retaurants.lastUpdate }</p>
+
+					</c:forEach>
+				</div>
+			</div>
 
 
 
@@ -79,18 +83,12 @@
 	</table>
 
 
-<br>
-<br>
-<br>
+	<br>
+	<br>
+	<br>
 
-<footer>
-    <img
-      src="images/ghostlogo.png"
-      alt="Footer Logo"
-      style="height:100px;"
-    />
-  </footer>
-  
-  
+
+	<jsp:include page="footer.jsp" />
+
 </body>
 </html>

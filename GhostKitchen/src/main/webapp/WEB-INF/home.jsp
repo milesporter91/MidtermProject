@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,20 +19,15 @@
 <title>Home</title>
 </head>
 <body>
-<jsp:include page="nav.jsp"/>
+	<jsp:include page="nav.jsp" />
 
-<h1>Ghost Kitchen</h1>
+	<h1>Ghost Kitchen</h1>
 
-<br>
-<br>
-<br>
+	<br>
+	<br>
+	<br>
 
-<footer>
-    <img
-      src="images/ghostlogo.png"
-      alt="Footer Logo"
-      style="height:100px;"
-    />
-  </footer>
+	<jsp:include page="footer.jsp" />
+
 </body>
 </html>

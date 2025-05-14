@@ -37,7 +37,7 @@ public class UserController {
 
 		if (user != null) {
 			session.setAttribute("loggedInUser", user);
-			return "account";
+			return "profile";
 		} else {
 			return "login";
 		}

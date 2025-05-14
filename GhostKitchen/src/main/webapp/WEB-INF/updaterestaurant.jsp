@@ -27,7 +27,7 @@
 	<jsp:include page="nav.jsp" />
 
 	<form action="updateRestaurant.do" method="POST">
-	<input type="hidden" name ="restaurantId" value="${restaurant.id}">
+		<input type="hidden" name="restaurantId" value="${restaurant.id}">
 		<table>
 			<tr>
 				<td><label for="name">Edit Restaurant Name:</label></td>
@@ -35,71 +35,81 @@
 			</tr>
 			<tr>
 				<td><label for="address.street">Edit Address Street:</label></td>
-				<td><input type="text" name="address.street" value="${restaurant.address.street }"></td>
+				<td><input type="text" name="address.street"
+					value="${restaurant.address.street }"></td>
 			</tr>
 			<tr>
 				<td><label for="address.street2">Edit Address Street 2:</label></td>
-				<td><input type="text" name="address.street2" value="${restaurant.address.street2 }"></td>
+				<td><input type="text" name="address.street2"
+					value="${restaurant.address.street2 }"></td>
 			</tr>
 			<tr>
 				<td><label for="address.city">Edit Address City:</label></td>
-				<td><input type="text" name="address.city" value="${restaurant.address.city }"></td>
+				<td><input type="text" name="address.city"
+					value="${restaurant.address.city }"></td>
 			</tr>
 			<tr>
 				<td><label for="address.state">Edit Address State:</label></td>
-				<td><input type="text" name="address.state" value="${restaurant.address.state }"></td>
+				<td><input type="text" name="address.state"
+					value="${restaurant.address.state }"></td>
 			</tr>
 			<tr>
 				<td><label for="address.zipCode">Edit Address Zip Code:</label></td>
-				<td><input type="text" name="address.zipCode" value="${restaurant.address.zipCode }"></td>
+				<td><input type="text" name="address.zipCode"
+					value="${restaurant.address.zipCode }"></td>
 			</tr>
 			<tr>
 				<td><label for="address.phone">Edit Address Phone:</label></td>
-				<td><input type="text" name="address.phone" value="${restaurant.address.phone }"></td>
+				<td><input type="text" name="address.phone"
+					value="${restaurant.address.phone }"></td>
 			</tr>
 			<tr>
 				<td><label for="imageUrl">Edit Image Url:</label></td>
-				<td><input type="text" name="imageUrl" value="${restaurant.imageUrl }"></td>
+				<td><input type="text" name="imageUrl"
+					value="${restaurant.imageUrl }"></td>
 			</tr>
 
 			<tr>
 				<td><label for="websiteUrl">Edit Website URL:</label></td>
-				<td><input type="text" name="websiteUrl" value="${restaurant.websiteUrl }"></td>
+				<td><input type="text" name="websiteUrl"
+					value="${restaurant.websiteUrl }"></td>
 			</tr>
 			<tr>
 				<td><label for="description">Edit Description:</label></td>
-				<td><input type="text" name="description" value="${restaurant.description }"></td>
+				<td><input type="text" name="description"
+					value="${restaurant.description }"></td>
 			</tr>
 			<tr>
 				<td><label for="priceRange">Edit Price Range(1-5):</label></td>
-				<td><input type="number" name="priceRange" step="1" min="1" max="5" value="${restaurant.priceRange }"></td>
+				<td><input type="number" name="priceRange" step="1" min="1"
+					max="5" value="${restaurant.priceRange }"></td>
 			</tr>
 			<tr>
 				<td><label for="openTime">Edit Opening Time:</label></td>
-				<td><input type="time" name="openTime" value="${restaurant.openTime }"></td>
+				<td><input type="time" name="openTime"
+					value="${restaurant.openTime }"></td>
 			</tr>
 			<tr>
 				<td><label for="closeTime">Edit Closing Time:</label></td>
-				<td><input type="time" name="closeTime" value="${restaurant.closeTime }"></td>
+				<td><input type="time" name="closeTime"
+					value="${restaurant.closeTime }"></td>
 			</tr>
 			<%-- <tr>
 				<td><label for="createDate">Add Create Date:</label></td>
 				<td><input type="hidden" name="createDate" value="${LocalDateTime.now }"></td>
 			</tr> --%>
-		<!-- 	<tr>
+			<!-- 	<tr>
 				<td><label for="lastUpdate">Add Last Update:</label></td>
 				<td><input type="text" name="lastUpdate"></td>
 			</tr> -->
 			<tr>
-				<td colspan="2"><button type="submit" class="btn btn-primary">Update Restaurant</button></td>
+				<td colspan="2"><button type="submit" class="btn btn-primary">Update
+						Restaurant</button></td>
 			</tr>
 		</table>
 	</form>
 
+	<jsp:include page="footer.jsp" />
 
-	<footer>
-		<img src="images/ghostlogo.png" alt="Footer Logo"
-			style="height: 100px;" />
-	</footer>
 </body>
 </html>

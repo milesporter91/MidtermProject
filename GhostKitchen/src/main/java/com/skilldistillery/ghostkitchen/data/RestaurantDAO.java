@@ -16,6 +16,6 @@ public interface RestaurantDAO {
 	 Restaurant create(Restaurant restaurant, int userId); 
 	 Restaurant update(Restaurant restaurant, int id); 
 	 List<CuisineType> showCuisine(); 
-	 boolean delete(int id); 
+	 public void disableRestaurant(int id);
 	 
 }
