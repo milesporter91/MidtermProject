@@ -39,6 +39,7 @@ public class RestaurantDAOImpl implements RestaurantDAO {
 	public Restaurant findById(int id) {
 		Restaurant restaurant = em.find(Restaurant.class, id);
 		if (restaurant.isEnabled() == true) {
+			restaurant.getReviews().size();
 			return restaurant;
 		}
 		return null;
