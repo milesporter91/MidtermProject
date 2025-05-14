@@ -31,6 +31,8 @@
 	
 	<h1>${restaurant.name }</h1>
 	
+	<a href="update.do?restaurantId=${restaurant.id}">Update This Restaurant</a>
+	
 	
 	
 	
