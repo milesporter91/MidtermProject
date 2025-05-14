@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="jakarta.tags.core" prefix="c"%>
+    pageEncoding="UTF-8"%> 
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
 
 
 
@@ -17,25 +17,18 @@
 	integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/main.css">
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>All Restaurants</title>
+<title>Profile Page</title>
 
 </head>
+<body>
+<jsp:include page="nav.jsp"/>
 
-<nav class>
-	<br>
-	<body>
-		<jsp:include page="nav.jsp" />
+<h1>Username: ${loggedInUser.username }</h1>
+<h1>Name: ${loggedInUser.firstName } ${loggedInUser.lastName }</h1>
 
-	
-		<h1>${restaurant.name }</h1>
-		<c:if test="${not empty sessionScope.loggedInUser}">
-			<a href="update.do?restaurantId=${restaurant.id}">Update This
-				Restaurant</a>
-		</c:if>
-</nav>
-<jsp:include page="footer.jsp" />
-
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

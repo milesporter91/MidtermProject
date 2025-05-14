@@ -71,7 +71,8 @@
 			</tr>
 			<tr>
 				<td><label for="priceRange">Add Price Range(1-5):</label></td>
-				<td><input type="number" name="priceRange" step="1" min="1" max="5"></td>
+				<td><input type="number" name="priceRange" step="1" min="1"
+					max="5"></td>
 			</tr>
 			<tr>
 				<td><label for="openTime">Add Opening Time:</label></td>
@@ -85,20 +86,19 @@
 				<td><label for="createDate">Add Create Date:</label></td>
 				<td><input type="hidden" name="createDate" value="${LocalDateTime.now }"></td>
 			</tr> --%>
-		<!-- 	<tr>
+			<!-- 	<tr>
 				<td><label for="lastUpdate">Add Last Update:</label></td>
 				<td><input type="text" name="lastUpdate"></td>
 			</tr> -->
 			<tr>
-				<td colspan="2"><button type="submit" class="btn btn-primary">Save Restaurant</button></td>
+				<td colspan="2"><button type="submit" class="btn btn-primary">Save
+						Restaurant</button></td>
 			</tr>
 		</table>
 	</form>
 
 
-	<footer>
-		<img src="images/ghostlogo.png" alt="Footer Logo"
-			style="height: 100px;" />
-	</footer>
+	<jsp:include page="footer.jsp" />
+
 </body>
 </html>

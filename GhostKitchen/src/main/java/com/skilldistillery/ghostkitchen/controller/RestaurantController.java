@@ -13,7 +13,6 @@ import com.skilldistillery.ghostkitchen.data.RestaurantDAO;
 import com.skilldistillery.ghostkitchen.entities.Restaurant;
 import com.skilldistillery.ghostkitchen.entities.User;
 
-import ch.qos.logback.core.joran.spi.HttpUtil.RequestMethod;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.servlet.http.HttpSession;
@@ -75,9 +74,12 @@ public class RestaurantController {
 	}
 
 	// Delete
-	@PostMapping("deleteRestuarant.do")
-	public void delete(Model model, @RequestParam("id") int id) {
-		restaurantDao.delete(id);
-		model.addAttribute("messsage", "Restaurant Successfull deleted");
+	@PostMapping("disableRestuarant.do")
+	public String disable(Model model, @RequestParam("restaurantId") int id) {
+		restaurantDao.disableRestaurant(id);
+		model.addAttribute("messsage", "Restaurant Successfull disabled");
+		return "showall";
 	}
+	
+	
 }

@@ -1,10 +1,12 @@
 package com.skilldistillery.ghostkitchen.data;
 
+
 import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.ghostkitchen.entities.CuisineType;
 import com.skilldistillery.ghostkitchen.entities.Restaurant;
 import com.skilldistillery.ghostkitchen.entities.User;
 
@@ -28,7 +30,7 @@ public class RestaurantDAOImpl implements RestaurantDAO {
 	public List<Restaurant> showAll() {
 
 		List<Restaurant> restaurants = null;
-		String jpql = "SELECT r FROM Restaurant r";
+		String jpql = "SELECT r FROM Restaurant r WHERE r.enabled = true";
 		restaurants = em.createQuery(jpql, Restaurant.class).getResultList();
 		return restaurants;
 	}
@@ -36,7 +38,10 @@ public class RestaurantDAOImpl implements RestaurantDAO {
 	@Override
 	public Restaurant findById(int id) {
 		Restaurant restaurant = em.find(Restaurant.class, id);
-		return restaurant;
+		if (restaurant.isEnabled() == true) {
+			return restaurant;
+		}
+		return null;
 	}
 
 	@Override
@@ -69,9 +74,18 @@ public class RestaurantDAOImpl implements RestaurantDAO {
 	}
 
 	@Override
-	public boolean delete(int id) {
-		em.remove(id);
-		return true;
+	public void disableRestaurant(int id) {
+		Restaurant restaurant = em.find(Restaurant.class, id);
+		restaurant.setEnabled(false);
+	}
+		
+
+	@Override
+	public List<CuisineType> showCuisine() {
+		List<CuisineType> cuisineTypes = null;
+		String jpql = "SELECT c FROM CuisineType c";
+		cuisineTypes = em.createQuery(jpql, CuisineType.class).getResultList();
+		return cuisineTypes;
 	}
 
 }

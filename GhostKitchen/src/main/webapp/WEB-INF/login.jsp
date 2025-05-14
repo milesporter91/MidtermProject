@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8"%> 
-  
+	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,25 +19,19 @@
 <link rel="stylesheet" href="css/main.css">
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<jsp:include page="nav.jsp"/>
+<jsp:include page="nav.jsp" />
 
 <h2>Log In</h2>
 <form action="login.do" method="POST">
 	<%-- Error messages --%>
-	<input type="text" name="username">
-	<input type="password" name="password"/>
-	<input type="submit" value="Log In" > 
+	<input type="text" name="username"> <input type="password"
+		name="password" /> <input type="submit" value="Log In">
 </form>
 
 <br>
 <br>
 <br>
-<footer>
-    <img
-      src="images/ghostlogo.png"
-      alt="Footer Logo"
-      style="height:100px;"
-    />
-  </footer>
+<jsp:include page="footer.jsp" />
+
 </body>
 </html>

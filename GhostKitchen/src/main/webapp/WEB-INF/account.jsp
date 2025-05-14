@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="css/main.css">
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Account Profile</title>
+<title>Account Page</title>
 
 </head>
 <body>
@@ -77,12 +77,7 @@
 <br>
 <br>
 
- <footer>
-    <img
-      src="images/ghostlogo.png"
-      alt="Footer Logo"
-      style="height:100px;"
-    />
-  </footer>
+<jsp:include page="footer.jsp"/>
+
 </body>
 </html>
