@@ -88,4 +88,11 @@ public class RestaurantDAOImpl implements RestaurantDAO {
 		return cuisineTypes;
 	}
 
+	@Override
+	public List<Restaurant> findRestaurantsByCuisineType(String cuisineTypeName) {
+		String jpql = "SELECT r FROM Restaurant r JOIN r.cuisineTypes c WHERE c.name = :cuisineTypeName AND r.enabled = true";
+		List<Restaurant> restaurants = em.createQuery(jpql, Restaurant.class).setParameter("cuisineTypeName", cuisineTypeName).getResultList();
+		return restaurants;
+	}
+
 }

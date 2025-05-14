@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%> 
-<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c"%>
 
 
 
@@ -24,11 +24,21 @@
 
 </head>
 <body>
-<jsp:include page="nav.jsp"/>
+	<jsp:include page="nav.jsp" />
 
-<h1>Username: ${loggedInUser.username }</h1>
-<h1>Name: ${loggedInUser.firstName } ${loggedInUser.lastName }</h1>
+	<h1>Username: ${loggedInUser.username }</h1>
+	<h1>Name: ${loggedInUser.firstName } ${loggedInUser.lastName }</h1>
+	<form action="findByCuisineType.do" method="GET">
+		<label for="cuisineType">Choose a Cuisine:</label> 
+		<select	name="cuisineTypeName" id="cuisineType" class="form-select" required>
+			<option value="">-- Select Cuisine --</option>
+			<c:forEach var="cuisine" items="${cuisineTypes}">
+				<option value="${cuisine.name}">${cuisine.name}</option>
+			</c:forEach>
+		</select> <br />
+		<button type="submit" class="btn btn-primary">Search</button>
+	</form>
 
-<jsp:include page="footer.jsp"/>
+	<jsp:include page="footer.jsp" />
 </body>
 </html>
