@@ -41,12 +41,15 @@
 				<tr>
 					<td><a href="showRestaurant.do?id=${restaurant.id}">
 							${restaurant.name }</a></td>
-					<td>${restaurant.cuisineTypes }</td>
+					<td><c:forEach var="cuisineType"
+							items="${restaurant.cuisineTypes}" varStatus="loop">
+    ${cuisineType.name}<c:if test="${!loop.last}">, </c:if>
+						</c:forEach></td>
 					<td>${restaurant.openTime }-${restaurant.closeTime }</td>
 					<td>${restaurant.address.phone }</td>
 					<td><form action="disableRestuarant.do" method="POST">
-							<input type="hidden" name="restaurantId" value="${restaurant.id}"> <input
-								type="submit" class="btn btn-danger" value="Delete" />
+							<input type="hidden" name="restaurantId" value="${restaurant.id}">
+							<input type="submit" class="btn btn-danger" value="Delete" />
 						</form></td>
 
 				</tr>
