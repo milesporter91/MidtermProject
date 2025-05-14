@@ -18,8 +18,6 @@ public class UserController {
 
 	@Autowired
 	private UserDAO userDao;
-	@Autowired
-	private RestaurantDAO restaurantDao;
 
 	@GetMapping(path = { "/", "home.do" })
 	public String home(Model model) {
@@ -40,7 +38,6 @@ public class UserController {
 
 		if (user != null) {
 			session.setAttribute("loggedInUser", user);
-			session.setAttribute("cuisineTypes", restaurantDao.showCuisine()); //DELETEME
 			return "profile";
 		} else {
 			return "login";

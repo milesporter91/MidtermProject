@@ -77,6 +77,8 @@ public class RestaurantController {
 	@PostMapping("disableRestuarant.do")
 	public String disable(Model model, @RequestParam("restaurantId") int id) {
 		restaurantDao.disableRestaurant(id);
+		List<Restaurant> restaurants = restaurantDao.showAll();
+		model.addAttribute("restaurants", restaurants);
 		model.addAttribute("messsage", "Restaurant Successfull disabled");
 		return "showall";
 	}
