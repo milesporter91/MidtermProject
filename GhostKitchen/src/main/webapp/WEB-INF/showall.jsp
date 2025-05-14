@@ -39,7 +39,7 @@
 		<tbody>
 			<c:forEach var="restaurant" items="${restaurants}">
 				<tr>
-					<td><a href="show.do?id=${restaurant.id}"> ${restaurant.name }</a>
+					<td><a href="showRestaurant.do?id=${restaurant.id}"> ${restaurant.name }</a>
 					</td>
 			<%-- 		<td>${restaurant.cuisineTypes }</td> --%>
 					<td>${restaurant.openTime } - ${restaurant.closeTime }</td>

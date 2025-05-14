@@ -1,6 +1,7 @@
 package com.skilldistillery.ghostkitchen.entities;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -36,10 +37,10 @@ public class Restaurant {
 	
 	
 	@Column(name="open_time")
-	private LocalDateTime openTime;
+	private LocalTime openTime;
 	
 	@Column(name="close_time")
-	private LocalDateTime closeTime;
+	private LocalTime closeTime;
 	
 	@Column(name="create_date")
 	private LocalDateTime createDate;
@@ -123,19 +124,19 @@ public class Restaurant {
 		this.priceRange = priceRange;
 	}
 
-	public LocalDateTime getOpenTime() {
+	public LocalTime getOpenTime() {
 		return openTime;
 	}
 
-	public void setOpenTime(LocalDateTime openTime) {
+	public void setOpenTime(LocalTime openTime) {
 		this.openTime = openTime;
 	}
 
-	public LocalDateTime getCloseTime() {
+	public LocalTime getCloseTime() {
 		return closeTime;
 	}
 
-	public void setCloseTime(LocalDateTime closeTime) {
+	public void setCloseTime(LocalTime closeTime) {
 		this.closeTime = closeTime;
 	}
 

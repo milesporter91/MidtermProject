@@ -14,11 +14,14 @@ import com.skilldistillery.ghostkitchen.entities.Restaurant;
 import com.skilldistillery.ghostkitchen.entities.User;
 
 import ch.qos.logback.core.joran.spi.HttpUtil.RequestMethod;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class RestaurantController {
-
+	@PersistenceContext
+	private EntityManager em;
 	@Autowired
 	RestaurantDAO restaurantDao;
 
@@ -39,10 +42,23 @@ public class RestaurantController {
 	}
 
 	// Update
+	@GetMapping("update.do")
+	public String goToUpdateForm(@RequestParam("restaurantId") int restaurantId, Model model, HttpSession session) {
+		Restaurant restaurant = em.find(Restaurant.class, restaurantId);
+		User user = (User) session.getAttribute("loggedInUser");
+		if (user != null) {
+		model.addAttribute("restaurant", restaurant);
+		return "updaterestaurant";
+		}
+		else {
+			return "redirect:showRestaurant.do?id=" + restaurantId;
+		}
+	}
+	
 	@PostMapping("updateRestaurant.do")
-	public String updateRestaurant(Restaurant restaurant, int id) {
-		restaurantDao.update(restaurant, id);
-		return "show";
+	public String updateRestaurant(Model model, Restaurant restaurant,@RequestParam("restaurantId") int id, HttpSession session) {
+		Restaurant updatedRestaurant = restaurantDao.update(restaurant, id);
+		return "redirect:showRestaurant.do?id=" + updatedRestaurant.getId();
 	}
 
 	@GetMapping("addRestaurant.do")

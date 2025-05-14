@@ -1,5 +1,6 @@
 package com.skilldistillery.ghostkitchen.data;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -44,6 +45,8 @@ public class RestaurantDAOImpl implements RestaurantDAO {
 		if (user != null) {
 			restaurant.setUser(user);
 			restaurant.setEnabled(true);
+			restaurant.setCreateDate(LocalDateTime.now());
+			restaurant.setLastUpdate(LocalDateTime.now());
 			em.persist(restaurant.getAddress());
 			em.persist(restaurant);
 			return restaurant;
@@ -53,15 +56,16 @@ public class RestaurantDAOImpl implements RestaurantDAO {
 
 	@Override
 	public Restaurant update(Restaurant restaurant, int id) {
-		
 		Restaurant managedRestaurant = em.find(Restaurant.class, id);
 		managedRestaurant.setName(restaurant.getName());
 		managedRestaurant.setDescription(restaurant.getDescription());
 		managedRestaurant.setImageUrl(restaurant.getImageUrl());
 		managedRestaurant.setWebsiteUrl(restaurant.getWebsiteUrl());
 		managedRestaurant.setPriceRange(restaurant.getPriceRange());
-		managedRestaurant.setOpenTime(restaurant.getCloseTime());
-		return restaurant;
+		managedRestaurant.setOpenTime(restaurant.getOpenTime());
+		managedRestaurant.setCloseTime(restaurant.getCloseTime());
+		managedRestaurant.setLastUpdate(LocalDateTime.now());
+		return managedRestaurant;
 	}
 
 	@Override
