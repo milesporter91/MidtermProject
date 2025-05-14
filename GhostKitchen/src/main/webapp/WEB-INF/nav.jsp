@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c"%>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+<nav class="navbar navbar-expand-sm navbar-dark bg-secondary">
   <div class="container-fluid">
     <a class="navbar-brand" href="${pageContext.request.contextPath}/home.do">
       <img
@@ -40,6 +40,7 @@
         <c:if test="${not empty sessionScope.loggedInUser}">
           <li class="nav-item"><a class="nav-link" href="addRestaurant.do">Create Restaurant</a></li>
           <li class="nav-item"><a class="nav-link" href="account.do">Account</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.do">Profile</a></li>
           <li class="nav-item"><a class="nav-link" href="logout.do">Logout</a></li>
         </c:if>
       </ul>

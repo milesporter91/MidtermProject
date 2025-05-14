@@ -81,5 +81,13 @@ public class RestaurantController {
 		return "showall";
 	}
 	
+	@GetMapping("findByCuisineType.do")
+	public String findByCuisineType(@RequestParam("cuisineTypeName") String cuisineTypeName, Model model, HttpSession session) {
+		List<Restaurant> restaurantResults = restaurantDao.findRestaurantsByCuisineType(cuisineTypeName);
+		model.addAttribute("message", "Restaurant Cuisine Type found");
+		model.addAttribute("restaurantResults", restaurantResults);
+		model.addAttribute("cuisineTypes", restaurantDao.showCuisine());
+		return "searchresults";
+	}
 	
 }

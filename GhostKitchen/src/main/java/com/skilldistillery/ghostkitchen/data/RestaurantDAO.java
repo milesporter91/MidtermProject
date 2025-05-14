@@ -17,5 +17,5 @@ public interface RestaurantDAO {
 	 Restaurant update(Restaurant restaurant, int id); 
 	 List<CuisineType> showCuisine(); 
 	 public void disableRestaurant(int id);
-	 
+	 public List<Restaurant> findRestaurantsByCuisineType(String cuisineTypeName);
 }
