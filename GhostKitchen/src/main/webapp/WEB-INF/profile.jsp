@@ -21,7 +21,7 @@
         <c:when test="${not empty loggedInUser}">
           <img src="${loggedInUser.imageUrl}" alt="Profile Image" 
                class="rounded-circle mb-4" 
-               style="width: 130px; height: 130px; object-fit: cover; border: 3px solid #c6ff00;">
+               style="width: 150px; height: 150px; object-fit: cover; border: 3px solid #c6ff00;">
 
           <h2 class="text-neon mb-3">${loggedInUser.username}</h2>
 
@@ -29,7 +29,7 @@
           <p class="text-light"><strong>Email:</strong> ${loggedInUser.email}</p>
           <p class="text-light mb-4"><strong>About Me:</strong> ${loggedInUser.aboutMe}</p>
 
-          <a href="account.do" class="btn btn-outline-light me-2">Edit Profile</a>
+          <a href="account.do" class="glow-btn" style="background-color: green;">Edit Profile</a>
           <a href="home.do" class="glow-btn">Home</a>
         </c:when>
         <c:otherwise>

@@ -16,7 +16,7 @@ public interface ReviewDAO {
 	
 //	Review disable(int reviewId);
 //	
-//	List<Review> findReviewsByRestaurantId(int restaurantId);
+	List<Review> findReviewsByRestaurantId(int restaurantId);
 //	List<Review> findReviewsByUserId(int userId);
 	 
 }

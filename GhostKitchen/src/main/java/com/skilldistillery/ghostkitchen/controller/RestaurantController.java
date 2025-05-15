@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.ghostkitchen.data.RestaurantDAO;
+import com.skilldistillery.ghostkitchen.data.ReviewDAO;
 import com.skilldistillery.ghostkitchen.entities.Restaurant;
 import com.skilldistillery.ghostkitchen.entities.User;
 
@@ -23,6 +24,8 @@ public class RestaurantController {
 	private EntityManager em;
 	@Autowired
 	RestaurantDAO restaurantDao;
+	@Autowired
+	ReviewDAO reviewDao;
 
 	@GetMapping("showAll.do")
 	public String showAll(Model model) {
@@ -35,6 +38,7 @@ public class RestaurantController {
 	@GetMapping("showRestaurant.do")
 	public String show(Model model, @RequestParam("id") int id) {
 		Restaurant restaurant = restaurantDao.findById(id);
+		model.addAttribute("reviews", reviewDao.findReviewsByRestaurantId(restaurant.getId())); 
 		model.addAttribute("restaurant", restaurant);
 		return "show";
 
@@ -44,12 +48,14 @@ public class RestaurantController {
 	@GetMapping("update.do")
 	public String goToUpdateForm(@RequestParam("restaurantId") int restaurantId, Model model, HttpSession session) {
 		Restaurant restaurant = em.find(Restaurant.class, restaurantId);
-		User user = (User) session.getAttribute("loggedInUser");
+		User user = (User) session.getAttribute("loggedInUser"); 
 		if (user != null) {
 		model.addAttribute("restaurant", restaurant);
+
 		return "updaterestaurant";
 		}
 		else {
+			model.addAttribute("reviews", reviewDao.findReviewsByRestaurantId(restaurant.getId())); 
 			return "redirect:showRestaurant.do?id=" + restaurantId;
 		}
 	}
@@ -57,6 +63,7 @@ public class RestaurantController {
 	@PostMapping("updateRestaurant.do")
 	public String updateRestaurant(Model model, Restaurant restaurant,@RequestParam("restaurantId") int id, HttpSession session) {
 		Restaurant updatedRestaurant = restaurantDao.update(restaurant, id);
+		model.addAttribute("reviews", reviewDao.findReviewsByRestaurantId(restaurant.getId())); 
 		return "redirect:showRestaurant.do?id=" + updatedRestaurant.getId();
 	}
 
@@ -67,9 +74,10 @@ public class RestaurantController {
 	
 	// Create
 	@PostMapping("create.do")
-	public String addRestaurant(Restaurant restaurant, HttpSession session) {
+	public String addRestaurant(Model model, Restaurant restaurant, HttpSession session) {
 		User user = (User) session.getAttribute("loggedInUser"); 
 		restaurantDao.create(restaurant, user.getId());
+		model.addAttribute("reviews", reviewDao.findReviewsByRestaurantId(restaurant.getId())); 
 		return "show";
 	}
 
