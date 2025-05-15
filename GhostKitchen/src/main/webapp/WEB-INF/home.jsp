@@ -20,7 +20,7 @@
       FOOD WITH NO <span class="hero-highlight">BOUNDARIES</span>
     </h1>
 
-    <a href="register.do" class="glow-btn mb-4">Order Now</a>
+    <a href="showAll.do" class="glow-btn mb-4">Order Now</a>
 
     <p class="hero-sub">
       Discover exclusive delivery-only kitchens built for flavor, not foot traffic.

@@ -19,33 +19,28 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Home</title>
 </head>
-<body>
-	<%--Edit the file nav.jsp to change nav links --%>
+<body class="body-bg1">
 	<jsp:include page="nav.jsp" />
 
-	<h2>Welcome to the site</h2>
+<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="neon-card p-5 w-100" style="max-width: 800px;">
+	<h2 class="text-center">☣️ Polymorphic Plague ☣️ </h2>
 
-	<p>Impactful innovative proactive, cutting-edge systems visionary
-		innovative recontextualize networks--enhance deliverables
-		out-of-the-box blogging efficient metrics. Reintermediate e-enable
-		B2B, reintermediate weblogs revolutionize e-services addelivery
-		content empower transparent beta-test matrix incentivize reinvent
-		collaborative turn-key deliverables: capture A-list compelling.
-		Bleeding-edge synthesize strategic platforms bricks-and-clicks
-		expedite interactive seize one-to-one engage innovative scalable
-		distributed convergence.
+
+	<h3>- Mid-term Team Project for Skill Distillery - <h3>
+	<ul style="font-size: 1rem;">
+		<li> Miles Porter (Developer, Repo Owner)d
+ 		<li> Michel Okello Mukua (Developer, SQL Database admin)
+ 		<li> Michael F (Developer, Scrum Master)
+ 		<li> Zachary Zink (Developer)
+	</ul>
+		Ghost Kitchen, developed by Polymorphic Plague, 
+		is a web application showcasing a specific set 
+		of ghost kitchen restaurants. Users can browse, 
+		rate, review, and save their favorite spots, 
+		creating a personalized food discovery experience 
+		tailored to the digital dining age.
 	</p>
-
-<br>
-<br>
-<br>
-
-<footer>
-    <img
-      src="images/ghostlogo.png"
-      alt="Footer Logo"
-      style="height:100px;"
-    />
-  </footer>
+		<img src="${pageContext.request.contextPath}/images/ghostlogo.png" alt="Footer Logo" style="height: 60px;" class="mb-2 text-center" />
 </body>
 </html>

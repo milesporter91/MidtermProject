@@ -2,10 +2,9 @@
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 
 <footer class="footer text-center mt-5 mb-3">
-  <img src="images/ghostlogo.png" alt="Footer Logo" style="height: 60px;" class="mb-2" />
-  <div>
-    <c:if test="${not empty sessionScope.loggedInUser}">
-      <a href="account.do" class="text-light small">Update Account</a>
-    </c:if>
-  </div>
+
+ 	<a href="${pageContext.request.contextPath}/index.do">
+    <img src="${pageContext.request.contextPath}/images/ghostlogo.png" alt="Footer Logo" style="height: 60px;" class="mb-2" />
+    
+  </a>
 </footer>
