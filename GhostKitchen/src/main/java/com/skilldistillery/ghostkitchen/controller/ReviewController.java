@@ -35,6 +35,7 @@ public class ReviewController {
 
 			review = reviewDAO.create(review, user.getId(), restaurantId);
 			model.addAttribute("restaurant", restaurantDAO.findById(restaurantId));
+			
 			return "show";
 
 		} else {
