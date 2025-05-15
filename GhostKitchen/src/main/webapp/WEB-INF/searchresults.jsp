@@ -1,93 +1,64 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c"%>
-
-
 
 <!DOCTYPE html>
 <html>
 <head>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
-	crossorigin="anonymous">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-	crossorigin="anonymous"></script>
-<link rel="stylesheet" href="css/main.css">
+  <meta charset="UTF-8">
+  <title>Search Results | Ghost Kitchen</title>
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Search Results</title>
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/main.css">
 </head>
 
-<br>
-<body>
-	<jsp:include page="nav.jsp" />
+<body class="body-bg4">
+  <jsp:include page="nav.jsp" />
 
-	<table class="primaryTest">
-		<thead>
-			<tr class="column_title">
-				<th>Restaurant Name</th>
-				<th>Cuisine Type</th>
-				<th>Business Hours</th>
-				<th>Phone</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="restaurant" items="${restaurantResults}">
-				<tr>
-					<td><a href="showRestaurant.do?id=${restaurant.id}">
-							${restaurant.name }</a></td>
-					<td>${restaurant.openTime }-${restaurant.closeTime }</td>
-					<td>${restaurant.address.phone }</td>
-					<td><form action="disableRestuarant.do" method="POST">
-							<input type="hidden" name="restaurantId" value="${restaurant.id}"> <input
-								type="submit" class="btn btn-danger" value="Delete" />
-						</form></td>
+  <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="neon-card p-4 w-100" style="max-width: 1200px;">
+      <h2 class="text-center text-neon mb-4">Search Results</h2>
 
-				</tr>
-			</c:forEach>
-			<div id="carouselExampleIndicators" class="carousel slide">
+      <div class="table-responsive">
+        <table class="table table-dark table-hover text-center align-middle">
+          <thead class="table-light text-dark">
+            <tr>
+              <th>Name</th>
+              <th>Cuisine Type</th>
+              <th>Business Hours</th>
+              <th>Phone</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <c:forEach var="restaurant" items="${restaurantResults}">
+              <tr>
+                <td>
+                  <a class="text-neon" href="showRestaurant.do?id=${restaurant.id}">
+                    ${restaurant.name}
+                  </a>
+                </td>
+                <td>
+                  <c:forEach var="cuisineType" items="${restaurant.cuisineTypes}" varStatus="loop">
+                    ${cuisineType.name}<c:if test="${!loop.last}">, </c:if>
+                  </c:forEach>
+                </td>
+                <td>${restaurant.openTime} - ${restaurant.closeTime}</td>
+                <td>${restaurant.address.phone}</td>
+                <td>
+                  <form action="disableRestuarant.do" method="POST">
+                    <input type="hidden" name="restaurantId" value="${restaurant.id}">
+                    <input type="submit" class="btn btn-danger btn-sm" value="Delete" />
+                  </form>
+                </td>
+              </tr>
+            </c:forEach>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
-
-
-				<div class="carousel-indicators">
-					<c:forEach var="restaurant" items="${restaurants}">
-						<div class="carousel-item"></div>
-						<p>${retaurants.name }</p>
-						<p>${retaurants.address }</p>
-						<p>${retaurants.enabled }</p>
-						<p>${retaurants.imageUrl }</p>
-						<p>${retaurants.websiteUrl }</p>
-						<p>${retaurants.description }</p>
-						<p>${retaurants.priceRange }</p>
-						<p>${retaurants.userId }</p>
-						<p>${retaurants.openTime}</p>
-						<p>${retaurants.closeTime}</p>
-						<p>${retaurants.createDate }</p>
-						<p>${retaurants.lastUpdate }</p>
-
-					</c:forEach>
-				</div>
-			</div>
-
-
-
-
-
-		</tbody>
-	</table>
-
-
-	<br>
-	<br>
-	<br>
-
-
-	<jsp:include page="footer.jsp" />
-
+  <jsp:include page="footer.jsp" />
 </body>
 </html>
