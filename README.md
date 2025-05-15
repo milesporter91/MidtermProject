@@ -24,7 +24,7 @@ Ghost Kitchen, developed by Polymorphic Plague, is a web application showcasing 
 
  This project is a Spring Boot web application developed in Eclipse and backed by  MySQL database. The application is configured to run on a Tomcat server and will be deployed to an AWS EC2. 
 
-
+[WEBPAGES](images/siteimg.md)<br>
 ## 👻 Technologies Used
 
  - Java
@@ -46,9 +46,10 @@ Ghost Kitchen, developed by Polymorphic Plague, is a web application showcasing 
 =======
 
 ![diagram](images/diagram.png)
-[SETUP](images/gettingStarted.md)<br>
+
 [WIREFRAME](images/wireframe.md)<br>
 
+[SETUP](images/gettingStarted.md)<br>
 
  ## 👻 Concepts Applied
 
@@ -84,6 +85,6 @@ Ghost Kitchen, developed by Polymorphic Plague, is a web application showcasing 
 
  ## 👻 How to Download and Run
 
-
+[WEBPAGES](images/siteimg.md)<br>
 
 
