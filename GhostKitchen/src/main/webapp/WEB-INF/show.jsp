@@ -27,8 +27,15 @@
 	<br>
 	<body>
 		<jsp:include page="nav.jsp" />
-
+	<form action="createReview.do" method="POST">
+	<input type="number" name="rating" min="1" max="5">
+	<input type="text" name="comments" >
+	<input type="hidden" name="restaurantId" value="${restaurant.id }"/>
+	<button type="submit"> submit
+	</button>
 	
+	</form>
+
 		<h1>${restaurant.name }</h1>
 		<c:if test="${not empty sessionScope.loggedInUser}">
 			<a href="update.do?restaurantId=${restaurant.id}">Update This

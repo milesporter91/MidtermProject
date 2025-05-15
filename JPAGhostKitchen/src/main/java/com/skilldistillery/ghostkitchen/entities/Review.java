@@ -4,9 +4,13 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -15,7 +19,7 @@ import jakarta.persistence.OneToMany;
 @Entity
 public class Review {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@ManyToOne 
@@ -32,8 +36,10 @@ public class Review {
 	private String comments;
 	private int rating;
 	private boolean enabled;
+	@CreationTimestamp
 	@Column(name="create_date")
 	private LocalDateTime createDate;
+	@UpdateTimestamp
 	@Column(name="last_update")
 	private LocalDateTime lastUpdate;
 	
