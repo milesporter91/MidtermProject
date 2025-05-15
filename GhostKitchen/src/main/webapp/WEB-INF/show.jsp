@@ -6,11 +6,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>${restaurant.name}|Ghost Kitchen</title>
+<title>${restaurant.name}|GhostKitchen</title>
 
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
 	rel="stylesheet" crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
 	crossorigin="anonymous"></script>
@@ -67,37 +69,52 @@
 					</div>
 					<p class="text-light mb-0">${review.comments}</p>
 				</div>
-				
-				
+
+
 			</c:forEach>
 			<c:if test="${not empty sessionScope.loggedInUser }">
-			<form action="createReview.do" method="POST">
-				<input type="hidden" name="restaurantId" value="${restaurant.id}" />
+				<form action="createReview.do" method="POST">
+					<input type="hidden" name="restaurantId" value="${restaurant.id}" />
 
-				<div class="mb-3">
-					<label class="form-label text-neon">Your Rating:</label>
-					<div class="star-rating d-flex justify-content-center">
-						<c:forEach var="i" begin="1" end="5">
-							<input type="radio" id="star${i}" name="rating" value="${i}"
-								class="d-none" />
-							<label for="star${i}"
-								class="bi bi-star-fill fs-3 me-2 star-hover text-light"></label>
-						</c:forEach>
+					<div class="mb-3 text-neon">
+						<div class="rating-card p-4 d-flex justify-content-center align-items-center">
+							<div class="star-rating animated-stars">
+								<input type="radio" id="star5" name="rating" value="5">
+								<label for="star5" class="bi bi-star-fill"></label> <input
+									type="radio" id="star4" name="rating" value="4"> <label
+									for="star4" class="bi bi-star-fill"></label> <input
+									type="radio" id="star3" name="rating" value="3"> <label
+									for="star3" class="bi bi-star-fill"></label> <input
+									type="radio" id="star2" name="rating" value="2"> <label
+									for="star2" class="bi bi-star-fill"></label> <input
+									type="radio" id="star1" name="rating" value="1"> <label
+									for="star1" class="bi bi-star-fill"></label>
+							</div>
+						</div>
 					</div>
-				</div>
 
-				<div class="mb-3">
-					<label for="comments" class="form-label text-neon">Comment</label>
-					<textarea name="comments" class="form-control" rows="3"
-						placeholder="Write something..."></textarea>
-				</div>
+					<div class="mb-3">
+						<label for="comments" class="form-label text-neon">Comment</label>
+						<textarea name="comments" class="form-control" rows="3"
+							placeholder="Write something..."></textarea>
+					</div>
 
-				<button type="submit" class="glow-btn w-100">Submit Review</button>
-			</form>
+					<button type="submit" class="glow-btn w-100">Submit Review</button>
+				</form>
 			</c:if>
 		</div>
 	</div>
 
 	<jsp:include page="footer.jsp" />
+	<script>
+    document.querySelectorAll('.star-rating:not(.readonly) label').forEach(star => {
+        star.addEventListener('click', function() {
+            this.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 200);
+        });
+    });
+</script>
 </body>
 </html>
