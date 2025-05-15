@@ -41,6 +41,7 @@ public class RestaurantController {
 		Restaurant restaurant = restaurantDao.findById(id);
 		model.addAttribute("reviews", reviewDao.findReviewsByRestaurantId(restaurant.getId()));
 		model.addAttribute("restaurant", restaurant);
+		model.addAttribute("averageRating", restaurantDao.getAverageRating(id));
 		return "show";
 
 	}
@@ -89,7 +90,7 @@ public class RestaurantController {
 		User user = (User) session.getAttribute("loggedInUser");
 		restaurantDao.create(restaurant, user.getId(), cuisineTypeId);
 		model.addAttribute("reviews", reviewDao.findReviewsByRestaurantId(restaurant.getId()));
-		return "show";
+		return "redirect:showRestaurant.do?id=" + restaurant.getId();
 	}
 
 	// Delete

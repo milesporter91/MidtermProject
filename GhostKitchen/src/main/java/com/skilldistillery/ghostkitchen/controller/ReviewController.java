@@ -36,11 +36,8 @@ public class ReviewController {
 		if (user != null) {
 			review = reviewDAO.create(review, user.getId(), restaurantId);
 			model.addAttribute("reviews", reviewDAO.findReviewsByRestaurantId(restaurantId)); 
-			
-			return "show";
-
-		} else {
-			return "show";
-		}
+		} 
+		return "redirect:showRestaurant.do?id=" + restaurantId;
+		
 	}
 }
