@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c"%>
+<%@ taglib uri="jakarta.tags.fmt" prefix="fmt"%>
+
 
 <!DOCTYPE html>
 <html>
@@ -47,6 +49,10 @@
 
 			<p class="text-light mb-3">
 				<strong>Price Range:</strong> ${restaurant.priceRange}/5
+			</p>
+			
+			<p class="text-light mb-3">
+				<strong>Average Rating:</strong> <fmt:formatNumber value="${averageRating}" pattern=".0"/>
 			</p>
 
 			<p class="text-light mb-4">

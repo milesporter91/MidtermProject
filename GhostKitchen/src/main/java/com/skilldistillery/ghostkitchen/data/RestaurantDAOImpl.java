@@ -118,4 +118,11 @@ public class RestaurantDAOImpl implements RestaurantDAO {
 		}
 		return null;
 	}
+
+	@Override
+	public Double getAverageRating(int restaurantId) {
+		String jpql = "SELECT AVG(r.rating) FROM Review r WHERE r.restaurant.id = :restaurantId";
+		Double averageRating = em.createQuery(jpql, Double.class).setParameter("restaurantId", restaurantId).getSingleResult();
+		return averageRating;
+	}
 }

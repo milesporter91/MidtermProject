@@ -25,4 +25,6 @@ public interface RestaurantDAO {
 	Restaurant addCuisineType(int restaurantId, int cuisineTypeId);
 
 	Restaurant removeCuisineType(int restaurantId, int cuisineTypeId);
+	
+	Double getAverageRating(int restaurantId);
 }
