@@ -1,5 +1,6 @@
 package com.skilldistillery.ghostkitchen.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -81,6 +82,21 @@ public class CuisineType {
 		this.restaurants = restaurants;
 	}
 
+	public void addRestaurant(Restaurant restaurant) {
+		if ( restaurants == null) { restaurants = new ArrayList<>(); }
+		if ( ! restaurants.contains(restaurant)) {
+			restaurants.add(restaurant);
+			restaurant.addCuisineType(this);
+		}
+	}
+	
+	public void removeRestaurant(Restaurant restaurant) {
+		if ( restaurants != null && restaurants.contains(restaurant)) {
+			restaurants.remove(restaurant);
+			restaurant.removeCuisineType(this);
+		}
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -100,11 +116,9 @@ public class CuisineType {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("CuisineType [id=").append(id).append(", name=").append(name).append(", description=")
-				.append(description).append(", imageUrl=").append(imageUrl).append("]");
-		return builder.toString();
+		return this.name;
 	}
+
 	
 	
 }

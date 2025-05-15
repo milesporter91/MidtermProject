@@ -2,6 +2,7 @@ package com.skilldistillery.ghostkitchen.entities;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -201,6 +202,21 @@ public class Restaurant {
 
 	public void setRestaurantTypes(List<RestaurantType> restaurantTypes) {
 		this.restaurantTypes = restaurantTypes;
+	}
+	
+	public void addCuisineType(CuisineType cuisineType) {
+		if ( cuisineTypes == null) { cuisineTypes = new ArrayList<>(); }
+		if ( ! cuisineTypes.contains(cuisineType)) {
+			cuisineTypes.add(cuisineType);
+			cuisineType.addRestaurant(this);
+		}
+	}
+	
+	public void removeCuisineType(CuisineType cuisineType) {
+		if ( cuisineTypes != null && cuisineTypes.contains(cuisineType)) {
+			cuisineTypes.remove(cuisineType);
+			cuisineType.removeRestaurant(this);
+		}
 	}
 
 	@Override
