@@ -38,6 +38,9 @@ Ghost Kitchen, developed by Polymorphic Plague, is a web application showcasing 
  - Bootstrap
  - AWS
  - Tomcat
+ - figma
+ - Trello
+ - FreeForm
 
  ## 👻 Database Schema
 =======
@@ -74,7 +77,9 @@ Ghost Kitchen, developed by Polymorphic Plague, is a web application showcasing 
     - Httpsessions needed to be added as parameters in place of model when we need to store the user inport temporarilty. 
     
     - we forgot on mutilple occassion to add out annotations. 
-    
+    - you can add boostrap spacing utility with custom CSS to help with table spacing
+    [Bootstrap spacing utility](https://getbootstrap.com/docs/5.3/utilities/spacing/)
+    -  
     
 
  ## 👻 How to Download and Run
