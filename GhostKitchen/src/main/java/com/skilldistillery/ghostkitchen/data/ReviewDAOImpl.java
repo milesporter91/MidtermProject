@@ -1,6 +1,7 @@
 package com.skilldistillery.ghostkitchen.data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -34,9 +35,16 @@ public class ReviewDAOImpl implements ReviewDAO {
 			return review;
 			
 		}
-		
-
 	return null;
 }
+
+	@Override
+	public List<Review> findReviewsByRestaurantId(int restaurantId) {
+		String jpql = "SELECT r FROM Review r JOIN r.restaurant WHERE r.restaurant.id = :restaurantId"; 
+	 List<Review> reviews =	em.createQuery(jpql, Review.class)
+				.setParameter("restaurantId", restaurantId)
+				.getResultList(); 
+	return reviews; 
+	}
 
 }
