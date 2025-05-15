@@ -63,7 +63,7 @@
         </table>
       </div>
       </c:when>
-      <c:otherwise> Didn't find any restaurants in with that cuisine type
+      <c:otherwise> Didn't find any restaurants with that cuisine type
       </c:otherwise>
       </c:choose>
     </div>

@@ -70,6 +70,7 @@
 				
 				
 			</c:forEach>
+			<c:if test="${not empty sessionScope.loggedInUser }">
 			<form action="createReview.do" method="POST">
 				<input type="hidden" name="restaurantId" value="${restaurant.id}" />
 
@@ -93,6 +94,7 @@
 
 				<button type="submit" class="glow-btn w-100">Submit Review</button>
 			</form>
+			</c:if>
 		</div>
 	</div>
 

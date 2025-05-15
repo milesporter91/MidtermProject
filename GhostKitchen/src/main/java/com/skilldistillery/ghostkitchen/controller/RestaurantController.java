@@ -37,7 +37,7 @@ public class RestaurantController {
 
 	// Display
 	@GetMapping("showRestaurant.do")
-	public String show(Model model, @RequestParam("id") int id) {
+	public String show(Model model, @RequestParam("id") int id, HttpSession session) {
 		Restaurant restaurant = restaurantDao.findById(id);
 		model.addAttribute("reviews", reviewDao.findReviewsByRestaurantId(restaurant.getId())); 
 		model.addAttribute("restaurant", restaurant);
