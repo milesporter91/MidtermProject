@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.ghostkitchen.data.RestaurantDAO;
+import com.skilldistillery.ghostkitchen.entities.CuisineType;
 import com.skilldistillery.ghostkitchen.data.ReviewDAO;
 import com.skilldistillery.ghostkitchen.entities.Restaurant;
 import com.skilldistillery.ghostkitchen.entities.User;
@@ -50,6 +51,7 @@ public class RestaurantController {
 		Restaurant restaurant = em.find(Restaurant.class, restaurantId);
 		User user = (User) session.getAttribute("loggedInUser"); 
 		if (user != null) {
+		model.addAttribute("cuisineTypes", restaurantDao.showCuisine());
 		model.addAttribute("restaurant", restaurant);
 
 		return "updaterestaurant";
@@ -68,15 +70,18 @@ public class RestaurantController {
 	}
 
 	@GetMapping("addRestaurant.do")
-	public String goToCreateForm() {
+	public String goToCreateForm(Model model) {
+		List<CuisineType> cuisineTypes = restaurantDao.showCuisine();
+		model.addAttribute("cuisineTypes", cuisineTypes);
 		return "newrestaurant"; 
 	}
 	
 	// Create
 	@PostMapping("create.do")
-	public String addRestaurant(Model model, Restaurant restaurant, HttpSession session) {
+	public String addRestaurant(Restaurant restaurant, HttpSession session, Model model, 
+			@RequestParam(name = "cuisineTypeId") int cuisineTypeId) {
 		User user = (User) session.getAttribute("loggedInUser"); 
-		restaurantDao.create(restaurant, user.getId());
+		restaurantDao.create(restaurant, user.getId(), cuisineTypeId);
 		model.addAttribute("reviews", reviewDao.findReviewsByRestaurantId(restaurant.getId())); 
 		return "show";
 	}
@@ -100,4 +105,23 @@ public class RestaurantController {
 		return "searchresults";
 	}
 	
+	@PostMapping("addCuisineTypeToRestaurant.do")
+	public String addCuisineTypeToRestaurant(@RequestParam("restaurantId") int restaurantId, 
+			@RequestParam("cuisineTypeId") int cuisineTypeId, HttpSession session )  {
+			User user = (User) session.getAttribute("loggedInUser");
+			if(user != null) {
+				restaurantDao.addCuisineType(restaurantId, cuisineTypeId);
+			}
+		return "redirect:update.do?restaurantId=" + restaurantId;
+	}
+	
+	@PostMapping("removeCuisineTypeFromRestaurant.do")
+	public String removeCuisineTypeToRestaurant(@RequestParam("restaurantId") int restaurantId, 
+			@RequestParam("cuisineTypeId") int cuisineTypeId, HttpSession session )  {
+			User user = (User) session.getAttribute("loggedInUser");
+			if(user != null) {
+				restaurantDao.removeCuisineType(restaurantId, cuisineTypeId);
+			}
+		return "redirect:update.do?restaurantId=" + restaurantId;
+	}
 }

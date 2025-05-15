@@ -2,6 +2,7 @@ package com.skilldistillery.ghostkitchen.data;
 
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -46,13 +47,14 @@ public class RestaurantDAOImpl implements RestaurantDAO {
 	}
 
 	@Override
-	public Restaurant create(Restaurant restaurant, int userId) {
+	public Restaurant create(Restaurant restaurant, int userId, int cuisineTypeId) {
 		User user = em.find(User.class, userId);
+		CuisineType cuisineType = em.find(CuisineType.class, cuisineTypeId);
 		if (user != null) {
+			restaurant.addCuisineType(cuisineType);
 			restaurant.setUser(user);
 			restaurant.setEnabled(true);
 			restaurant.setCreateDate(LocalDateTime.now());
-			restaurant.setLastUpdate(LocalDateTime.now());
 			em.persist(restaurant.getAddress());
 			em.persist(restaurant);
 			return restaurant;
@@ -95,5 +97,26 @@ public class RestaurantDAOImpl implements RestaurantDAO {
 		List<Restaurant> restaurants = em.createQuery(jpql, Restaurant.class).setParameter("cuisineTypeName", cuisineTypeName).getResultList();
 		return restaurants;
 	}
+	
+	@Override
+	public Restaurant addCuisineType(int restaurantId, int cuisineTypeId) {
+		Restaurant restaurant = em.find(Restaurant.class, restaurantId);
+		CuisineType cuisineType = em.find(CuisineType.class, cuisineTypeId);
+		if (restaurant != null && cuisineType != null) {
+			restaurant.addCuisineType(cuisineType);
+			return restaurant;
+		}
+		return null;
+	}
 
+	@Override
+	public Restaurant removeCuisineType(int restaurantId, int cuisineTypeId) {
+		Restaurant restaurant = em.find(Restaurant.class, restaurantId);
+		CuisineType cuisineType = em.find(CuisineType.class, cuisineTypeId);
+		if (restaurant != null && cuisineType != null) {
+			restaurant.removeCuisineType(cuisineType);
+			return restaurant;
+		}
+		return null;
+	}
 }

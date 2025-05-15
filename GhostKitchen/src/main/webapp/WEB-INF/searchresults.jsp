@@ -18,6 +18,8 @@
   <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
     <div class="neon-card p-4 w-100" style="max-width: 1200px;">
       <h2 class="text-center text-neon mb-4">Search Results</h2>
+      <c:choose>
+      <c:when test="${not empty restaurantResults }">
 
       <div class="table-responsive">
         <table class="table table-dark table-hover text-center align-middle">
@@ -27,7 +29,9 @@
               <th>Cuisine Type</th>
               <th>Business Hours</th>
               <th>Phone</th>
+              <c:if test="${not empty sessionScope.loggedInUser }" >
               <th>Action</th>
+              </c:if>
             </tr>
           </thead>
           <tbody>
@@ -45,17 +49,23 @@
                 </td>
                 <td>${restaurant.openTime} - ${restaurant.closeTime}</td>
                 <td>${restaurant.address.phone}</td>
+                <c:if test="${not empty sessionScope.loggedInUser }" >
                 <td>
                   <form action="disableRestuarant.do" method="POST">
                     <input type="hidden" name="restaurantId" value="${restaurant.id}">
                     <input type="submit" class="btn btn-danger btn-sm" value="Delete" />
                   </form>
                 </td>
+                </c:if>
               </tr>
             </c:forEach>
           </tbody>
         </table>
       </div>
+      </c:when>
+      <c:otherwise> Didn't find any restaurants in with that cuisine type
+      </c:otherwise>
+      </c:choose>
     </div>
   </div>
 
