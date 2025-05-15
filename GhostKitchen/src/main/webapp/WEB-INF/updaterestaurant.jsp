@@ -25,6 +25,7 @@
 		<div class="neon-card p-5 w-100" style="max-width: 800px;">
 			<h2 class="text-neon text-center mb-4">Update Restaurant</h2>
 
+
 			<form action="updateRestaurant.do" method="POST">
 				<input type="hidden" name="restaurantId" value="${restaurant.id}" />
 
@@ -115,36 +116,35 @@
 					</div>
 				</div>
 			</form>
-			
-			<hr>
-			<h5>Cuisine Types:</h5>
-			<ul>
-				<c:forEach var="type" items="${restaurant.cuisineTypes}">
-					<li>${type.name}</li>
-					<form action="removeCuisineTypeFromRestaurant.do" method="POST">
-						<input type="hidden" name="restaurantId" value="${restaurant.id}">
-						<input type="hidden" name="cuisineTypeId" value="${type.id}">
-						<button class="glow-btn">Remove Cuisine Type from Restaurant</button>
-					</form>
-				</c:forEach>
-			</ul>
-			<form action="addCuisineTypeToRestaurant.do" method="POST">
-				<div class="col-md-4">
-					<input type="hidden" name="restaurantId" value="${restaurant.id}">
-					<select name="cuisineTypeId">
-						<c:forEach var="type" items="${cuisineTypes}">
-							<option value="${type.id}">
-								${type.name}
-							
-							</option>
-						</c:forEach>
-					</select>
-					<button class="glow-btn">Add Cuisine Type to Restaurant</button>
-				</div>
-			</form>
-		</div>
-	</div>
 
-	<jsp:include page="footer.jsp" />
+			<hr>
+			<h5 class="text-neon mt-4 text-center">Cuisine Types:</h5>
+
+			<form action="addCuisineTypeToRestaurant.do" method="POST"
+  class="mb-2 d-flex justify-content-center gap-2 align-items-center">
+  <div class="d-flex align-items-center neon-card px-3 py-2">
+    <input type="hidden" name="restaurantId" value="${restaurant.id}">
+    <select name="cuisineTypeId" class="form-select w-auto bg-dark text-light border-neon">
+      <c:forEach var="type" items="${cuisineTypes}">
+        <option value="${type.id}">${type.name}</option>
+      </c:forEach>
+    </select>
+    <button type="submit" class="btn btn-sm text-neon ms-2">Add</button>
+  </div>
+</form>
+
+<div class="d-flex flex-wrap justify-content-center gap-3">
+  <c:forEach var="type" items="${restaurant.cuisineTypes}">
+    <div class="d-flex align-items-center neon-card px-3 py-2">
+      <span class="text-light me-3">${type.name}</span>
+      <form action="removeCuisineTypeFromRestaurant.do" method="POST" class="mb-0">
+        <input type="hidden" name="restaurantId" value="${restaurant.id}">
+        <input type="hidden" name="cuisineTypeId" value="${type.id}">
+        <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+      </form>
+    </div>
+  </c:forEach>
+</div>
+	</div>
 </body>
 </html>
