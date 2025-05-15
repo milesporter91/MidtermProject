@@ -38,6 +38,9 @@ Ghost Kitchen, developed by Polymorphic Plague, is a web application showcasing 
  - Bootstrap
  - AWS
  - Tomcat
+ - figma
+ - Trello
+ - FreeForm
 
  ## 👻 Database Schema
 =======
@@ -58,11 +61,29 @@ Ghost Kitchen, developed by Polymorphic Plague, is a web application showcasing 
 
     - Mapping Entity with Composite Primary Key
     
-        @Embeddable
-        public class PartyInvitationId implements Serializable {
-        private static final long serialVersionUID = 1L;
-    -  best to have specific jsp for each specific tasks
+    ``@Embeddable 
+    public class PartyInvitationId implements Serializable {
+        private static final long serialVersionUID = 1L;``
 
+    -   best to have specific jsp for each specific tasks
+
+    -   when working in teams, its import to all work on one Trello task at a time as each task  builds on the previous task. Detailed KanBan cards so we are clear on what we are doing and what needs to be accompliced to to complete the task.
+
+    -   Build out the JSP's as you go so that the effective methods are input into the correct file and are mapped correctly. 
+
+    -   each user need to reload DB to local when its updated at the base level.
+            ` mysql -u root -p < DB/ghostkichensdb.sql`
+
+    - Httpsessions needed to be added as parameters in place of model when we need to store the user inport temporarilty. 
+    
+    - we forgot on mutilple occassion to add out annotations. 
+    - you can add boostrap spacing utility with custom CSS to help with table spacing
+    [Bootstrap spacing utility](https://getbootstrap.com/docs/5.3/utilities/spacing/)
+    -  
     
 
  ## 👻 How to Download and Run
+
+
+
+

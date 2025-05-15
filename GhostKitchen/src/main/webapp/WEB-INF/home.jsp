@@ -1,33 +1,37 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
-	crossorigin="anonymous">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-	crossorigin="anonymous"></script>
-<link rel="stylesheet" href="css/main.css">
+  <meta charset="UTF-8">
+  <title>Home | Ghost Kitchen</title>
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="UTF-8">
-<title>Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
-	<jsp:include page="nav.jsp" />
+<body class="ghost-layout body-bg1">
+  <jsp:include page="nav.jsp" />
 
-	<h1>Ghost Kitchen</h1>
+<div class="centered-form spacing">
+  <main class="ghost-main spacing">
+    <div class="hero-container">
+  <div class="text-center">
+    <h1 class="hero-title mb-4">
+      FOOD WITH NO <span class="hero-highlight">BOUNDARIES</span>
+    </h1>
 
-	<br>
-	<br>
-	<br>
+    <a href="showAll.do" class="glow-btn mb-4">Order Now</a>
 
-	<jsp:include page="footer.jsp" />
+    <p class="hero-sub">
+      Discover exclusive delivery-only kitchens built for flavor, not foot traffic.
+    </p>
+  </div>
+</div>
+  </main>
 
+</div>
+
+
+  <jsp:include page="footer.jsp" />
 </body>
 </html>

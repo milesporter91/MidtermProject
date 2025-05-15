@@ -1,37 +1,36 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Log In</title>
+  <meta charset="UTF-8">
+  <title>Log In | Ghost Kitchen</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/main.css">
 </head>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
-	crossorigin="anonymous">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-	crossorigin="anonymous"></script>
-<link rel="stylesheet" href="css/main.css">
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<jsp:include page="nav.jsp" />
+<body class="body-bg1">
 
-<h2>Log In</h2>
-<form action="login.do" method="POST">
-	<%-- Error messages --%>
-	<input type="text" name="username"> <input type="password"
-		name="password" /> <input type="submit" value="Log In">
-</form>
+  <jsp:include page="nav.jsp" />
 
-<br>
-<br>
-<br>
-<jsp:include page="footer.jsp" />
+  <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="neon-card text-center p-5">
+      <h2 class="text-neon mb-4">Log In</h2>
+      <form action="login.do" method="POST">
+        <div class="mb-3">
+          <input type="text" name="username" class="form-control" placeholder="Username" required>
+        </div>
+        <div class="mb-3">
+          <input type="password" name="password" class="form-control" placeholder="Password" required>
+        </div>
+        <button type="submit" class="glow-btn w-100">Log In</button>
+      </form>
+    </div>
+  </div>
+
+  <jsp:include page="footer.jsp" />
 
 </body>
 </html>
