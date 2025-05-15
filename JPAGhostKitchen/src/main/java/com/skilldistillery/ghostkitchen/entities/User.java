@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -41,10 +44,11 @@ public class User {
 	private String lastName;
 	
 	private String email;
-	
+	@CreationTimestamp
 	@Column(name= "create_date")
 	private LocalDateTime createDate;
 	
+	@UpdateTimestamp
 	@Column(name= "last_update")
 	private LocalDateTime lastUpdate;
 	

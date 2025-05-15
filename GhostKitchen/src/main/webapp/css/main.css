@@ -290,23 +290,25 @@ body, html {
   box-shadow: 0 0 18px #c6ff00;
 }
 .star-rating {
-  direction: rtl; /* makes the sibling selector work left-to-right visually */
-  display: inline-flex;
-}
+        direction: rtl;
+        display: inline-block;
+        cursor: pointer;
+    }
 
-.star-rating input[type="radio"] {
-  display: none;
-}
+    .star-rating input {
+        display: none;
+    }
 
-.star-rating label {
-  font-size: 2rem;
-  color: #444;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
+    .star-rating label {
+        color: #ddd;
+        font-size: 24px;
+        padding: 0 2px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
 
-.star-rating input[type="radio"]:checked ~ label,
-.star-rating label:hover,
-.star-rating label:hover ~ label {
-  color: #c6ff00;
-}
+    .star-rating label:hover,
+    .star-rating label:hover~label,
+    .star-rating input:checked~label {
+        color: #c6ff00;
+    }

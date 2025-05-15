@@ -47,8 +47,9 @@
 							type="text" class="form-control" name="description">
 					</div>
 					<div class="col-md-6">
+						<label class="form-label text-neon">Cuisine Type</label>
 							<select name="cuisineTypeId"
-								class="form-select form-select-sm bg-dark text-light border-neon">
+								class="form-control">
 								<option value="">Cuisine...</option>
 								<c:forEach var="cuisineType" items="${cuisineTypes}">
 								<option value="${cuisineType.id}">${cuisineType.name}</option>
