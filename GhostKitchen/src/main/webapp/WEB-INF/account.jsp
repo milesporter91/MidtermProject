@@ -52,7 +52,7 @@
 
             <div class="d-flex justify-content-between">
               <button type="submit" class="glow-btn">Update</button>
-              <a href="home.do" class="btn btn-outline-light">Cancel</a>
+              <a href="home.do" class=" glow-btn" style="background-color: red;">Cancel</a>
             </div>
           </form>
         </c:when>

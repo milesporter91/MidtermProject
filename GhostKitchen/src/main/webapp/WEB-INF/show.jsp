@@ -29,7 +29,9 @@
       <c:if test="${not empty sessionScope.loggedInUser}">
         <a href="update.do?restaurantId=${restaurant.id}" class="btn btn-outline-light mb-4">Update This Restaurant</a>
       </c:if>
-
+		<c:forEach var="review" items="${reviews}">
+		${review.comments}
+		</c:forEach>
       <form action="createReview.do" method="POST">
         <input type="hidden" name="restaurantId" value="${restaurant.id}" />
 

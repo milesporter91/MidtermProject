@@ -289,12 +289,24 @@ body, html {
   transform: scale(1.05);
   box-shadow: 0 0 18px #c6ff00;
 }
-.star-hover {
+.star-rating {
+  direction: rtl; /* makes the sibling selector work left-to-right visually */
+  display: inline-flex;
+}
+
+.star-rating input[type="radio"] {
+  display: none;
+}
+
+.star-rating label {
+  font-size: 2rem;
+  color: #444;
   cursor: pointer;
   transition: color 0.2s ease;
 }
 
-input[type="radio"]:checked + label,
-input[type="radio"]:hover + label {
-  color: #c6ff00 !important;
+.star-rating input[type="radio"]:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #c6ff00;
 }
