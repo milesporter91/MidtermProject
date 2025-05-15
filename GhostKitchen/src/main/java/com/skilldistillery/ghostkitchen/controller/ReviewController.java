@@ -30,11 +30,12 @@ public class ReviewController {
 	public String addReview(Review review, @RequestParam(name = "restaurantId") int restaurantId, HttpSession session, Model model) {
 
 		User user = (User) session.getAttribute("loggedInUser");
+		model.addAttribute("reviews", reviewDAO.findReviewsByRestaurantId(restaurantId)); 
+		model.addAttribute("restaurant", restaurantDAO.findById(restaurantId));
 
 		if (user != null) {
-
 			review = reviewDAO.create(review, user.getId(), restaurantId);
-			model.addAttribute("restaurant", restaurantDAO.findById(restaurantId));
+			model.addAttribute("reviews", reviewDAO.findReviewsByRestaurantId(restaurantId)); 
 			
 			return "show";
 
