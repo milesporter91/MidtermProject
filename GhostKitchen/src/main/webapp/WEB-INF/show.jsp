@@ -76,7 +76,7 @@
 					<p class="text-light mb-0">${review.comments}</p>
 				</div>
 
-
+			
 			</c:forEach>
 			<c:if test="${not empty sessionScope.loggedInUser }">
 				<form action="createReview.do" method="POST">
@@ -108,9 +108,11 @@
 					<button type="submit" class="glow-btn w-100">Submit Review</button>
 				</form>
 			</c:if>
+		<br>
+		<c:if test="${empty sessionScope.loggedInUser }">Please log in to review a restaurant</c:if>
 		</div>
 	</div>
-
+	
 	<jsp:include page="footer.jsp" />
 	<script>
     document.querySelectorAll('.star-rating:not(.readonly) label').forEach(star => {
