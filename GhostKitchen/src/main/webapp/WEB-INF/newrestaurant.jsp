@@ -50,7 +50,7 @@
 						<label class="form-label text-neon">Cuisine Type</label>
 							<select name="cuisineTypeId"
 								class="form-control">
-								<option value="">Cuisine...</option>
+								<option value="1">Cuisine...</option>
 								<c:forEach var="cuisineType" items="${cuisineTypes}">
 								<option value="${cuisineType.id}">${cuisineType.name}</option>
 								</c:forEach>
