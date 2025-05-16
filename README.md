@@ -8,9 +8,8 @@
 ### Team
  * Miles Porter (Developer, Repo Owner)
  * Michel Okello Mukua (Developer, SQL Database admin)
- * Michael F (Developer, Scrum Master)
+ * Michael Francavilla (Developer, Scrum Master)
  * Zachary Zink (Developer)
-
 
 ## 👻 Overview
 

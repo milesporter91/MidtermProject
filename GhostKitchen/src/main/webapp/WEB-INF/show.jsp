@@ -68,7 +68,7 @@
 
 			<c:forEach var="review" items="${reviews}">
 				<div class="neon-card mb-3 p-3 text-start">
-					<div class="d-flex align-items-center mb-2">
+					<div class="d-flex align-items-center mb-2 text-neon">
 						<c:forEach begin="1" end="${review.rating}" var="i">
 							<i class="bi bi-star-fill text-neon me-1"></i>
 						</c:forEach>

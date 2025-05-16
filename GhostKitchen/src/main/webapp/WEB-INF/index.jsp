@@ -29,11 +29,14 @@
 
 	<h3>- Mid-term Team Project for Skill Distillery - <h3>
 	<ul style="font-size: 1rem;">
-		<li> Miles Porter (Developer, Repo Owner)d
+		<li> Miles Porter (Developer, Repo Owner)
  		<li> Michel Okello Mukua (Developer, SQL Database admin)
- 		<li> Michael F (Developer, Scrum Master)
+ 		<li> Michael Francavilla (Developer, Scrum Master)
  		<li> Zachary Zink (Developer)
-	</ul>
+	</ul">
+	<br>
+	<br>
+		<p style="font-size: 1.5rem;">
 		Ghost Kitchen, developed by Polymorphic Plague, 
 		is a web application showcasing a specific set 
 		of ghost kitchen restaurants. Users can browse, 
@@ -41,6 +44,8 @@
 		creating a personalized food discovery experience 
 		tailored to the digital dining age.
 	</p>
-		<img src="${pageContext.request.contextPath}/images/ghostlogo.png" alt="Footer Logo" style="height: 60px;" class="mb-2 text-center" />
+	<div class="d-flex justify-content-center" >
+		<img src="${pageContext.request.contextPath}/images/ghostlogo.png" alt="Footer Logo" style="height: 60px;" class="mb-1" />
+	</div>
 </body>
 </html>
